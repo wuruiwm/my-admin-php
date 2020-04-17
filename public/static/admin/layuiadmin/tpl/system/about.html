@@ -1,0 +1,25 @@
+<div class="layui-card-header">版本信息</div>
+<div class="layui-card-body layui-text layadmin-about">
+    <script type="text/html" template>
+        <p>当前版本：0.1.0</p>
+        <p>基于框架：laravel6 + layui</p>
+    </script>
+    <div class="layui-btn-container">
+        <a href="https://www.nikm.cn" target="_blank" class="layui-btn layui-btn-danger">作者博客</a>
+        <a href="https://github.com/github-muzilong/laravel55-layuiadmin/tree/6.0" target="_blank" class="layui-btn">基于框架</a>
+    </div>
+</div>
+
+<div class="layui-card-header">作者信息</div>
+<div class="layui-card-body layui-text layadmin-about">
+
+    <blockquote class="layui-elem-quote" style="border: none;">
+        Author: 傍晚升起的太阳<br>
+        QQ: 1250201168<br>
+        Email: wuruiwm@qq.com<br>
+    </blockquote>
+    <p>© <span id="date_y">2020</span> <a href="https://www.nikm.cn" target="_blank">吾梦一梦</a> 版权所有</p>
+    <script>
+        document.getElementById('date_y').innerHTML = (new Date()).getFullYear();
+    </script>
+</div>
