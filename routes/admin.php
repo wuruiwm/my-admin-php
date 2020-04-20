@@ -135,3 +135,18 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware'=>['auth','perm
     });
 
 });
+
+/*   ↑后台框架路由↑   */
+/***********************************分割线*************************************/
+/*   ↓业务逻辑路由↓   */
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'],function(){
+    //账号密码管理
+    Route::group(['prefix'=>'password','middleware' => 'permission:password'],function(){
+        Route::get('index','PasswordController@index')->name('admin.password.index')->middleware('permission:password.index');
+        Route::get('list','PasswordController@list')->name('admin.password.list')->middleware('permission:password.index');
+        Route::post('delete','PasswordController@delete')->name('admin.password.delete')->middleware('permission:password.delete');
+        Route::post('edit','PasswordController@edit')->name('admin.password.edit')->middleware('permission:password.edit');
+        Route::post('create','PasswordController@create')->name('admin.password.create')->middleware('permission:password.create');
+    });
+});

@@ -24,18 +24,19 @@
 </div>
 
 <div class="layui-form-item">
-    <label for="" class="layui-form-label">名称</label>
-    <div class="layui-input-inline">
-        <input type="text" name="name" value="{{$permission->name??old('name')}}" lay-verify="required" class="layui-input" placeholder="如：system.index">
-    </div>
-</div>
-
-<div class="layui-form-item">
     <label for="" class="layui-form-label">显示名称</label>
     <div class="layui-input-inline">
         <input type="text" name="display_name" value="{{$permission->display_name??old('display_name')}}" lay-verify="required" class="layui-input" placeholder="如：系统管理">
     </div>
 </div>
+
+<div class="layui-form-item">
+    <label for="" class="layui-form-label">权限名称</label>
+    <div class="layui-input-inline">
+        <input type="text" name="name" value="{{$permission->name??old('name')}}" lay-verify="required" class="layui-input" placeholder="如：system.index">
+    </div>
+</div>
+
 <div class="layui-form-item">
     <label for="" class="layui-form-label">路由</label>
     <div class="layui-input-inline">
