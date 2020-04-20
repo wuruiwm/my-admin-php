@@ -192,7 +192,7 @@
                 if(id == 0){
                     var url = "{{ route('admin.password.create') }}";
                 }else{
-                    data.id = id
+                    data.id = id;
                     var url = "{{ route('admin.password.edit') }}";
                 }
                 $.post(url,data,function(res){
@@ -215,6 +215,12 @@
                     }
                 });
             });
+            //监听按下回车键时，触发搜索
+            $(document).on('keydown', function(e){
+                if(e.keyCode == 13 && $("#search_keyword").is(":focus")){
+                    $('#search').click();
+                }
+            })
         });
     </script>
 @endsection
