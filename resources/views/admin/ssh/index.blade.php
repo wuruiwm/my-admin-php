@@ -113,8 +113,7 @@
                 //data就是一行的数据
                 var data = obj.data;
                 if(obj.event === 'connect'){
-                    var url = 'http://192.168.18.173:8000/?hostname='+ data.host +'&username='+ data.user +'&password='+ window.btoa(data.password)
-                    console.log(url);
+                    var url = '{{ admin_config('ssh_connect_url') }}?hostname='+ data.host +'&username='+ data.user +'&password='+ window.btoa(data.password);
                     layer.open({
                         type: 2,
                         title: data.title,
@@ -122,7 +121,7 @@
                         shade: false,
                         maxmin: true, //开启最大化最小化按钮
                         skin: 'layui-layer-rim', //加上边框
-                        area: ['893px', '600px'],
+                        area: ['50rem', '30rem'],
                         content: url
                     });
                 }

@@ -149,7 +149,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('edit','PasswordController@edit')->name('admin.password.edit')->middleware('permission:password.edit');
         Route::post('create','PasswordController@create')->name('admin.password.create')->middleware('permission:password.create');
     });
-    //账号密码管理
+    //SSH管理
     Route::group(['prefix'=>'ssh','middleware' => 'permission:ssh'],function(){
         Route::get('index','SshController@index')->name('admin.ssh.index')->middleware('permission:ssh.index');
         Route::get('list','SshController@list')->name('admin.ssh.list')->middleware('permission:ssh.index');
