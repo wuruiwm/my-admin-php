@@ -26,12 +26,17 @@ class Password extends Base
             $count = count($data);
             $after = $offset + $limit;
             $i = 0;
+            $tmp_data = [];
             foreach ($data as $k => $v){
-                if($i < $offset || $i >= $after){
-                    unset($data[$k]);
+                if($i >= $after){
+                    break;
+                }
+                if($i >= $offset){
+                    $tmp_data[] = $v;
                 }
                 $i++;
             }
+            $data = $tmp_data;
         }else{
             $model = self::orderBy('id','asc')
                 ->where(function($query) use($keyword){
@@ -49,5 +54,16 @@ class Password extends Base
                 ->get();
         }
         return ['data'=>$data,'count'=>$count];
+    }
+    public static function getData($request){
+        $data = $request->validated();
+        $data["remark"] = $request->input("remark");
+        if(!empty(admin_config("is_password_encrypt"))){
+            $data['title'] = password_encrypt($data['title']);
+            $data['user'] = password_encrypt($data['user']);
+            $data['password'] = password_encrypt($data['password']);
+            $data['remark'] = password_encrypt($data['remark']);
+        }
+        return $data;
     }
 }
