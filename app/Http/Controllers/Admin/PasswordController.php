@@ -32,8 +32,7 @@ class PasswordController extends BaseController
         }
     }
     public function create(PasswordCreateRequest $request){
-        $data = $request->validated();
-        $data["remark"] = $request->input("remark");
+        $data = self::getData($request);
         try {
             Password::create($data);
             return self::success("添加成功");
@@ -42,13 +41,23 @@ class PasswordController extends BaseController
         }
     }
     public function edit(PasswordEditRequest $request){
-        $data = $request->validated();
-        $data["remark"] = $request->input("remark");
+        $data = self::getData($request);
         try {
             Password::where('id',$data['id'])->update($data);
             return self::success("修改成功");
         } catch (\Throwable $th) {
             return self::error("修改失败");
         }
+    }
+    private static function getData($request){
+        $data = $request->validated();
+        $data["remark"] = $request->input("remark");
+        if(!empty(admin_config("is_password_encrypt"))){
+            $data['title'] = password_encrypt($data['title']);
+            $data['user'] = password_encrypt($data['user']);
+            $data['password'] = password_encrypt($data['password']);
+            $data['remark'] = password_encrypt($data['remark']);
+        }
+        return $data;
     }
 }

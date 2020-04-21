@@ -9,11 +9,11 @@
  */
 
 //读取后台配置
-function adminConfig($key){
-    $data = \Illuminate\Support\Facades\Cache::rememberForever('adminConfig', function(){
+function admin_config($key){
+    $data = \Illuminate\Support\Facades\Cache::rememberForever('admin_config', function(){
         return \App\Models\Configuration::pluck('val','key');
     });
-    if(isset($data[$key]) && !empty($data[$key])){
+    if(isset($data[$key])){
         return $data[$key];
     }else{
         return '';
@@ -50,4 +50,14 @@ function get_rand_string($length = 32){
         $str .= $strPol[rand(0, $max)];
     }
     return $str;
+}
+//加密
+function password_encrypt($str = '',$key = null){
+    $key != null || $key = admin_config('password_key');
+    return base64_encode(openssl_encrypt($str,'AES-128-ECB',$key,OPENSSL_RAW_DATA));
+}
+//解密
+function password_decrypt($str,$key = null){
+    $key != null || $key = admin_config('password_key');
+    return openssl_decrypt(base64_decode($str),'AES-128-ECB',$key,OPENSSL_RAW_DATA);
 }

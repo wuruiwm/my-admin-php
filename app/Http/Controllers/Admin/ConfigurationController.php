@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\ConfigGroup;
 use App\Models\Configuration;
+use App\Models\ConfigUpdateAction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
@@ -57,7 +58,7 @@ class ConfigurationController extends BaseController
         }catch (\Exception $exception){
             return Redirect::back()->withErrors('添加失败');
         }
-        Cache::forget('adminConfig');
+        Cache::forget('admin_config');
         return Redirect::to(URL::route('admin.configuration'))->with(['success'=>'添加成功']);
     }
 
@@ -72,6 +73,9 @@ class ConfigurationController extends BaseController
         DB::beginTransaction();
         try{
             foreach ($data as $k => $v){
+                if(method_exists(ConfigUpdateAction::class,$k)){
+                    ConfigUpdateAction::$k($data);
+                }
                 DB::table('configuration')->where('key',$k)->update(['val'=>$v]);
             }
             DB::commit();
@@ -79,7 +83,7 @@ class ConfigurationController extends BaseController
             DB::rollback();
             return Response::json(['code'=>1,'msg'=>'更新失败']);
         }
-        Cache::forget('adminConfig');
+        Cache::forget('admin_config');
         return Response::json(['code'=>0,'msg'=>'更新成功']);
     }
     public function upload(Request $request)

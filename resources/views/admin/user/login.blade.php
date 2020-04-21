@@ -15,7 +15,7 @@
 <div class="layadmin-user-login layadmin-user-display-show" style="background-color:white;">
     <div class="layadmin-user-login-main">
         <div class="layadmin-user-login-box layadmin-user-login-header">
-            <h2>{{adminConfig('site_title')}}</h2>
+            <h2>{{admin_config('site_title')}}</h2>
             <p>欢迎使用</p>
         </div>
         <div class="layadmin-user-login-box layadmin-user-login-body layui-form">

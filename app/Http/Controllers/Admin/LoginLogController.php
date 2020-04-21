@@ -64,7 +64,7 @@ class LoginLogController extends BaseController
             return Response::json(['code'=>1,'msg'=>'请选择删除项']);
         }
 
-        if (empty(adminConfig('delete_login_log'))){
+        if (empty(admin_config('delete_login_log'))){
             return Response::json(['code'=>1,'msg'=>'系统已设置禁止删除登录日志']);
         }
         try{

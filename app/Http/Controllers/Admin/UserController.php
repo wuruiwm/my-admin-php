@@ -75,7 +75,7 @@ class UserController extends BaseController
     protected function authenticated(Request $request, $user)
     {
         //记录登录成功日志
-        if (adminConfig('login_log') == 1){
+        if (admin_config('login_log') == 1){
             LoginLog::create([
                 'username' => $user->username,
                 'ip' => $request->ip(),

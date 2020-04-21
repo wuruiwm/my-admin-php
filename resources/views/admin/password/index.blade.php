@@ -215,12 +215,12 @@
                     }
                 });
             });
-            //监听按下回车键时，触发搜索
+            //监听按下回车键时并且焦点在搜索框时，触发搜索
             $(document).on('keydown', function(e){
                 if(e.keyCode == 13 && $("#search_keyword").is(":focus")){
                     $('#search').click();
                 }
-            })
+            });
         });
     </script>
 @endsection
