@@ -64,10 +64,19 @@
 
 @section('script')
     <script type="text/html" id="buttons">
-        <button class="layui-btn layui-btn-xs" lay-event="connect">连接</button>
+        <button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="connect">连接</button>
         <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
         <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
     </script>
+
+    <!-- 密码template -->
+    <script type="text/html" id="passwords">
+        <div style="position:relative">
+            <span>**********</span>
+            <i class="fa fa-eye eye" data-is-show-password="0" data-password="@{{d.password}}"></i>
+        </div>
+    </script>
+
     <script>
         layui.use(['table'], function(){
             var id;
@@ -93,7 +102,7 @@
                     {field:'host', title:'HOST', align:'center'},
                     {field:'port', title:'端口', align:'center'},
                     {field:'user', title:'用户名', align:'center'},
-                    {field:'password', title:'密码', align:'center'},
+                    {field:'password', title:'密码', align:'center',templet: '#passwords'},
                     {field:'remark',title: '备注', align:'center', templet: function(d){
                             if(d.remark){
                                 return d.remark;
@@ -106,7 +115,25 @@
                     {fixed:'right', title:'操作', align:'center', toolbar:'#buttons'}
                 ]],
                 done: function (){
-
+                    //表格刷新完后执行
+                    //点击按钮复制
+                    new Clipboard('.copy');
+                    //复制后提示
+                    $('.copy').click(function(){
+                        layer.msg('复制成功');
+                    });
+                    //点击眼睛隐藏展示密码
+                    $('.eye').click(function(){
+                        if($(this).data("is-show-password") == 1){
+                            $(this).prev().html("**********");
+                            $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+                            $(this).data("is-show-password","0");
+                        }else{
+                            $(this).prev().html($(this).data("password"));
+                            $(this).removeClass("fa-eye").addClass("fa-eye-slash");
+                            $(this).data("is-show-password","1");
+                        }
+                    });
                 }
             });
             table.on('tool(table)', function(obj){
