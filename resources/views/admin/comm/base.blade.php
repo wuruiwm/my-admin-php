@@ -16,6 +16,7 @@
 <script src="/static/admin/jquery/jquery.min.js"></script>
 <script src="/static/admin/layui/layui.js"></script>
 <script src="/static/admin/clipboard/clipboard.js"></script>
+<script src="/static/admin/qrcode/jr-qrcode.js"></script>
 <script>
     var layer;
     var form;

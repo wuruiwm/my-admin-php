@@ -157,4 +157,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('edit','SshController@edit')->name('admin.ssh.edit')->middleware('permission:ssh.edit');
         Route::post('create','SshController@create')->name('admin.ssh.create')->middleware('permission:ssh.create');
     });
+    //短链
+    Route::group(['prefix'=>'short/links','middleware' => 'permission:short_links'],function(){
+        Route::get('index','ShortLinksController@index')->name('admin.short_links.index')->middleware('permission:short_links.index');
+        Route::get('list','ShortLinksController@list')->name('admin.short_links.list')->middleware('permission:short_links.index');
+        Route::post('delete','ShortLinksController@delete')->name('admin.short_links.delete')->middleware('permission:short_links.delete');
+        Route::post('edit','ShortLinksController@edit')->name('admin.short_links.edit')->middleware('permission:short_links.edit');
+        Route::post('create','ShortLinksController@create')->name('admin.short_links.create')->middleware('permission:short_links.create');
+        Route::get('rand/tail','ShortLinksController@randTail')->name('admin.short_links.rand_tail')->middleware('permission:short_links.index');
+    });
 });

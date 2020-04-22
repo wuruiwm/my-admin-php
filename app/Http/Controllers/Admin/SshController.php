@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
 use App\Http\Requests\PageRequest;
-use App\Http\Requests\DeleteIdRequest;
+use App\Http\Requests\RequiredIdRequest;
 use App\Http\Requests\SshCreateRequest;
 use App\Http\Requests\SshEditRequest;
 use App\Models\Ssh;
@@ -19,10 +19,10 @@ class SshController extends BaseController
         $limit = $data['limit'];
         $offset = ($data['page'] - 1) * $limit;
         $keyword = $request->input("keyword");
-        $password = Ssh::list($offset,$limit,$keyword);
-        return self::success('请求成功',$password['data'],$password['count']);
+        $ssh = Ssh::list($offset,$limit,$keyword);
+        return self::success('请求成功',$ssh['data'],$ssh['count']);
     }
-    public function delete(DeleteIdRequest $request){
+    public function delete(RequiredIdRequest $request){
         $id = $request->validated()['id'];
         try {
             Ssh::where('id',$id)->delete($id);

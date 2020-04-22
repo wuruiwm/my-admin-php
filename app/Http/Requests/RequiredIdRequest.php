@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class DeleteIdRequest extends BaseRequest
+class RequiredIdRequest extends BaseRequest
 {
     public function rules(){
         return [

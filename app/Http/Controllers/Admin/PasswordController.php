@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Models\Password;
 use App\Http\Requests\PageRequest;
-use App\Http\Requests\DeleteIdRequest;
+use App\Http\Requests\RequiredIdRequest;
 use App\Http\Requests\PasswordCreateRequest;
 use App\Http\Requests\PasswordEditRequest;
 
@@ -22,7 +22,7 @@ class PasswordController extends BaseController
         $password = Password::list($offset,$limit,$keyword);
         return self::success('请求成功',$password['data'],$password['count']);
     }
-    public function delete(DeleteIdRequest $request){
+    public function delete(RequiredIdRequest $request){
         $id = $request->validated()['id'];
         try {
             Password::where('id',$id)->delete($id);
