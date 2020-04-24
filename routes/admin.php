@@ -166,4 +166,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('create','ShortLinksController@create')->name('admin.short_links.create')->middleware('permission:short_links.create');
         Route::get('rand/tail','ShortLinksController@randTail')->name('admin.short_links.rand_tail')->middleware('permission:short_links.index');
     });
+    //SSL证书
+    Route::group(['prefix'=>'ssl','middleware' => 'permission:ssl'],function(){
+        Route::get('index','SslController@index')->name('admin.ssl.index')->middleware('permission:ssl.index');
+    });
 });
