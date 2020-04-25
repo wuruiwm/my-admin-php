@@ -11,14 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('/admin', 301);
-});
+Route::get('/','Web\IndexController@index');
 
 //短链
-Route::fallback(function (){
-    if(empty($data = \App\Models\ShortLinks::where('tail',request()->path())->first())){
-       return \Illuminate\Support\Facades\View::make('errors.404');
-    }
-    return redirect($data->link, 301);
-});
+Route::fallback('Web\ShortLinksController@index');
