@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class PasswordEditRequest extends BaseRequest
+class PasswordUpdateRequest extends BaseRequest
 {
     public function rules(){
         $PasswordCreateRequest = new PasswordCreateRequest();

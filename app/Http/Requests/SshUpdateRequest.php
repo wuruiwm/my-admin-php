@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class SshEditRequest extends BaseRequest
+class SshUpdateRequest extends BaseRequest
 {
     public function rules(){
         $SshCreateRequest = new SshCreateRequest();

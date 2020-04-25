@@ -7,7 +7,7 @@ use App\Models\Password;
 use App\Http\Requests\PageRequest;
 use App\Http\Requests\RequiredIdRequest;
 use App\Http\Requests\PasswordCreateRequest;
-use App\Http\Requests\PasswordEditRequest;
+use App\Http\Requests\PasswordUpdateRequest;
 
 class PasswordController extends BaseController
 {
@@ -40,7 +40,7 @@ class PasswordController extends BaseController
             return self::error("添加失败");
         }
     }
-    public function edit(PasswordEditRequest $request){
+    public function edit(PasswordUpdateRequest $request){
         $data = Password::getData($request);
         try {
             Password::where('id',$data['id'])->update($data);

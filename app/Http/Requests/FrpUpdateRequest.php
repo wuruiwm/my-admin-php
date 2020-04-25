@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class FrpEditRequest extends BaseRequest
+class FrpUpdateRequest extends BaseRequest
 {
     public function rules(){
         $FrpCreateRequest = new FrpCreateRequest();

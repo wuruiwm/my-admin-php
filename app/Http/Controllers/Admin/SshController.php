@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Requests\PageRequest;
 use App\Http\Requests\RequiredIdRequest;
 use App\Http\Requests\SshCreateRequest;
-use App\Http\Requests\SshEditRequest;
+use App\Http\Requests\SshUpdateRequest;
 use App\Models\Ssh;
 
 class SshController extends BaseController
@@ -40,7 +40,7 @@ class SshController extends BaseController
             return self::error("添加失败");
         }
     }
-    public function edit(SshEditRequest $request){
+    public function edit(SshUpdateRequest $request){
         $data = Ssh::getData($request);
         try {
             Ssh::where('id',$data['id'])->update($data);

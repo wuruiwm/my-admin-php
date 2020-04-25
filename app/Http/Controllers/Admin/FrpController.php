@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\View;
 use App\Http\Requests\PageRequest;
 use App\Http\Requests\RequiredIdRequest;
 use App\Http\Requests\FrpCreateRequest;
-use App\Http\Requests\FrpEditRequest;
+use App\Http\Requests\FrpUpdateRequest;
 use App\Models\Frp;
 
 class FrpController extends BaseController
@@ -44,7 +44,7 @@ class FrpController extends BaseController
             return self::error("添加失败");
         }
     }
-    public function edit(FrpEditRequest $request){
+    public function edit(FrpUpdateRequest $request){
         $data = Frp::getData($request);
         if(!Frp::checkDomainName($data['domain_name'])){
             return self::error("请输入正确的域名");
