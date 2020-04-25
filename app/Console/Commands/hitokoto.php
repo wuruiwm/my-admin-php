@@ -12,7 +12,7 @@ class hitokoto extends Command
      *
      * @var string
      */
-    protected $signature = 'hitokoto';
+    protected $signature = 'hitokoto {num}';
 
     /**
      * The console command description.
@@ -38,7 +38,11 @@ class hitokoto extends Command
      */
     public function handle()
     {
-        while(true){
+        $num = $this->argument('num');
+        $num = intval($num);
+        $success = 0;
+        $i = 0;
+        while($i < $num){
             $res = file_get_contents('https://v1.hitokoto.cn/');
             $res = json_decode($res,true);
             $data = [];
@@ -50,10 +54,13 @@ class hitokoto extends Command
             $data['type'] = model::typeTransformation($res['type']);
             try {
                 model::insert($data);
+                $success++;
                 $this->info("插入成功");
             } catch (\Throwable $th) {
                 $this->error("插入失败");
             }
+            $i++;
         }
+        $this->info('有效插入'.$success.'条');
     }
 }
