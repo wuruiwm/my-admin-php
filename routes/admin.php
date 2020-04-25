@@ -170,4 +170,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     Route::group(['prefix'=>'ssl','middleware' => 'permission:ssl'],function(){
         Route::get('index','SslController@index')->name('admin.ssl.index')->middleware('permission:ssl.index');
     });
+    //FRP域名跳转
+    Route::group(['prefix'=>'frp','middleware' => 'permission:frp'],function(){
+        Route::get('index','FrpController@index')->name('admin.frp.index')->middleware('permission:frp.index');
+        Route::get('list','FrpController@list')->name('admin.frp.list')->middleware('permission:frp.index');
+        Route::post('delete','FrpController@delete')->name('admin.frp.delete')->middleware('permission:frp.delete');
+        Route::post('edit','FrpController@edit')->name('admin.frp.edit')->middleware('permission:frp.edit');
+        Route::post('create','FrpController@create')->name('admin.frp.create')->middleware('permission:frp.create');
+        Route::post('https/switch','FrpController@httpsSwitch')->name('admin.frp.https_switch')->middleware('permission:frp.edit');
+    });
 });
