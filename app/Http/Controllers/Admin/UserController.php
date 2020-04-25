@@ -39,11 +39,14 @@ class UserController extends BaseController
      */
     protected function validateLogin(Request $request)
     {
-        $this->validate($request, [
-            'captcha' => 'required|captcha',
+        $rules = [
             $this->username() => 'required|string',
             'password' => 'required|string',
-        ]);
+        ];
+        if(!empty(admin_config('is_verification_code'))){
+            $rules['captcha'] = 'required|captcha';
+        }
+        $this->validate($request,$rules);
     }
 
     //登录成功后的跳转地址

@@ -33,6 +33,8 @@
                     <input type="password" name="password" maxlength="16" lay-verify="required" placeholder="密码"
                            class="layui-input">
                 </div>
+
+                @if (!empty(admin_config('is_verification_code')))
                 <div class="layui-form-item">
                     <div class="layui-row">
                         <div class="layui-col-xs7">
@@ -48,6 +50,8 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
                 <div class="layui-form-item">
                     <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="*">登 入</button>
                 </div>
