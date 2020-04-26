@@ -25,5 +25,6 @@ class IndexController extends BaseController
             }
             return redirect($url,301);
         }
+        return redirect('/admin',302);
     }
 }

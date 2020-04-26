@@ -4,20 +4,23 @@
     <style>
         .copy-btn{
             position: absolute;
-            right: 10px;
+            right: 0px;
             top:3px;
         }
     </style>
     <div class="layui-form">
         <blockquote class="layui-elem-quote">
             <div class="layui-inline" style="margin-left: 2rem;">
-                <button class="layui-btn" id="create">添加账号密码</button>
+                <button class="layui-btn" id="create"><i class="layui-icon">&#xe608;</i> 添加账号密码</button>
             </div>
             <div class="layui-inline" style="margin-left: 2rem;">
                 <input type="text" placeholder="请输入关键词进行搜索..." class="layui-input" id="search_keyword" style="width:15rem;">
             </div>
             <div class="layui-inline" style="margin-left: 1rem;">
-                <button type="button" class="layui-btn" id="search">搜索</button>
+                <button type="button" class="layui-btn" id="search"><i class="layui-icon ">&#xe615;</i> 搜索</button>
+            </div>
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <button type="button" class="layui-btn" id="export"><i class="layui-icon ">&#xe67d;</i> 导出</button>
             </div>
         </blockquote>
     </div>
@@ -63,7 +66,7 @@
         <div style="position:relative">
             @{{# if(d.user){ }}
                 @{{d.user}}
-                <button type="button" class="layui-btn layui-btn-xs copy copy-btn" data-clipboard-text="@{{d.user}}">复制</button>
+                <button type="button" class="layui-btn layui-btn-primary layui-btn-xs copy copy-btn" data-clipboard-text="@{{d.user}}"><i class="fa fa-files-o" aria-hidden="true"></i></button>
             @{{# }else{ }}
                 无用户名
             @{{# } }}
@@ -75,21 +78,22 @@
         <div style="position:relative">
             <span>**********</span>
             <i class="fa fa-eye eye" data-is-show-password="0"></i>
-            <button type="button" class="layui-btn layui-btn-xs copy copy-btn" data-clipboard-text="@{{d.password}}">复制</button>
+            <button type="button" class="layui-btn layui-btn-primary layui-btn-xs copy copy-btn" data-clipboard-text="@{{d.password}}"><i class="fa fa-files-o" aria-hidden="true"></i></button>
         </div>
     </script>
 
     <script type="text/html" id="buttons">
-        <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
-        <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
+        <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete"><i class="layui-icon">&#xe640;</i>删除</button>
     </script>
     <script>
         layui.use(['table'], function(){
             var id;
             var table = layui.table;
+            var list_url = "{{ route('admin.password.list') }}";
             table.render({
                 elem: '#table',
-                url: "{{ route('admin.password.list') }}",
+                url: list_url,
                 cellMinWidth: 80, //全局定义常规单元格的最小宽度
                 height: 'full-180',
                 page: true,
@@ -200,7 +204,7 @@
                         layer.closeAll();
                         //提交数据成功后重载表格
                         table.reload('table',{ //表格的id
-                            url:"{{ route('admin.password.list') }}",
+                            url:list_url,
                         });
                     }
                     layer.msg(res.msg);
@@ -209,7 +213,7 @@
             $('#search').click(function(){
                 //传递where条件实现搜索，并且重载表格数据
                 table.reload('table',{ //表格的id
-                    url:"{{ route('admin.password.list') }}",
+                    url:list_url,
                     where:{
                         'keyword':$('#search_keyword').val(),
                     }
@@ -220,6 +224,14 @@
                 if(e.keyCode == 13 && $("#search_keyword").is(":focus")){
                     $('#search').click();
                 }
+            });
+            $('#export').click(function(){
+                var count = $('.layui-laypage-count').text().replace('共 ','').replace(' 条','');
+                $.get(list_url+'?page=1&limit='+count,function(res){
+                    if(res.code == 0){
+                        table.exportFile(['id','名称','用户名','密码','备注','创建时间','修改时间'],res.data, 'csv');
+                    }
+                });
             });
         });
     </script>
