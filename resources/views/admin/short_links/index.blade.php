@@ -10,13 +10,16 @@
     <div class="layui-form">
         <blockquote class="layui-elem-quote">
             <div class="layui-inline" style="margin-left: 2rem;">
-                <button class="layui-btn" id="create">添加短链</button>
+                <button class="layui-btn" id="create"><i class="layui-icon">&#xe608;</i> 添加短链</button>
             </div>
             <div class="layui-inline" style="margin-left: 2rem;">
                 <input type="text" placeholder="请输入关键词进行搜索..." class="layui-input" id="search_keyword" style="width:15rem;">
             </div>
             <div class="layui-inline" style="margin-left: 1rem;">
-                <button type="button" class="layui-btn" id="search">搜索</button>
+                <button type="button" class="layui-btn" id="search"><i class="layui-icon ">&#xe615;</i> 搜索</button>
+            </div>
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <button type="button" class="layui-btn" id="export"><i class="layui-icon ">&#xe67d;</i> 导出</button>
             </div>
         </blockquote>
     </div>
@@ -55,9 +58,9 @@
 
 @section('script')
     <script type="text/html" id="buttons">
-        <button class="layui-btn layui-btn-normal layui-btn-xs copy" data-clipboard-text="{{ $short_links_domain_name }}/@{{d.tail}}">复制短链</button>
-        <button class="layui-btn layui-btn-xs" lay-event="edit">编辑</button>
-        <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete">删除</button>
+        <button class="layui-btn layui-btn-xs copy" data-clipboard-text="{{ $short_links_domain_name }}/@{{d.tail}}"><i class="layui-icon">&#xe64c;</i>复制短链</button>
+        <button class="layui-btn layui-btn-normal layui-btn-xs" lay-event="edit"><i class="layui-icon">&#xe642;</i>编辑</button>
+        <button class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete"><i class="layui-icon">&#xe640;</i>删除</button>
     </script>
 
     <!-- 二维码templet -->
@@ -69,9 +72,10 @@
         layui.use(['table'], function(){
             var id;
             var table = layui.table;
+            var list_url = "{{ route('admin.short_links.list') }}";
             table.render({
                 elem: '#table',
-                url: "{{ route('admin.short_links.list') }}",
+                url: list_url,
                 cellMinWidth: 80, //全局定义常规单元格的最小宽度
                 height: 'full-180',
                 page: true,
@@ -98,7 +102,7 @@
                     }},
                     {field:'updated_at', title:'修改时间', align:'center'},
                     {field:'created_at', title:'创建时间', align:'center'},
-                    {fixed:'right', title:'操作', align:'center', toolbar:'#buttons'}
+                    {fixed:'right', title:'操作', align:'center', toolbar:'#buttons',width:250}
                 ]],
                 done: function (){
                     //表格刷新完后执行
@@ -174,7 +178,7 @@
                         layer.closeAll();
                         //提交数据成功后重载表格
                         table.reload('table',{ //表格的id
-                            url:"{{ route('admin.short_links.list') }}",
+                            url:list_url,
                         });
                     }
                     layer.msg(res.msg);
@@ -183,7 +187,7 @@
             $('#search').click(function(){
                 //传递where条件实现搜索，并且重载表格数据
                 table.reload('table',{ //表格的id
-                    url:"{{ route('admin.short_links.list') }}",
+                    url:list_url,
                     where:{
                         'keyword':$('#search_keyword').val(),
                     }
@@ -221,6 +225,14 @@
                     }
                 );
             }
+            $('#export').click(function(){
+                var count = $('.layui-laypage-count').text().replace('共 ','').replace(' 条','');
+                $.get(list_url+'?page=1&limit='+count,function(res){
+                    if(res.code == 0){
+                        table.exportFile(['ID','短链','跳转地址','备注','创建时间','修改时间'],res.data,'csv');
+                    }
+                });
+            });
         });
     </script>
 @endsection

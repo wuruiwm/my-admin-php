@@ -229,7 +229,7 @@
                 var count = $('.layui-laypage-count').text().replace('共 ','').replace(' 条','');
                 $.get(list_url+'?page=1&limit='+count,function(res){
                     if(res.code == 0){
-                        table.exportFile(['id','名称','用户名','密码','备注','创建时间','修改时间'],res.data, 'csv');
+                        table.exportFile(['ID','名称','用户名','密码','备注','创建时间','修改时间'],res.data, 'csv');
                     }
                 });
             });
