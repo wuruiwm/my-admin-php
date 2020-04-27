@@ -12,12 +12,26 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Support\Facades\View;
 use App\Models\ShortLinks;
+use App\Models\ShortLinksLog;
 
 class ShortLinksController extends BaseController
 {
     public function index(){
-        if(!empty($data = ShortLinks::where('tail',request()->path())->first())){
-            return redirect($data->link, 301);
+        if(!empty($ShortLinks = ShortLinks::where('tail',request()->path())->first())){
+            $ip = get_client_ip();
+            $data = [
+                'short_links_id'=>$ShortLinks->id,
+                'tail'=>$ShortLinks->tail,
+                'link'=>$ShortLinks->link,
+                'ip'=>$ip,
+                'position'=>ShortLinksLog::ipToPosition($ip),
+            ];
+            try {
+                ShortLinksLog::create($data);
+                return redirect($ShortLinks->link, 301);
+            } catch (\Throwable $th) {
+                return View::make('errors.404');
+            }
         }
         return View::make('errors.404');
     }

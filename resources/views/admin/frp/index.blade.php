@@ -103,7 +103,7 @@
                         }},
                     {field:'updated_at', title:'修改时间', align:'center'},
                     {field:'created_at', title:'创建时间', align:'center'},
-                    {fixed:'right', title:'操作', align:'center', toolbar:'#buttons'}
+                    {fixed:'right', title:'操作', align:'center', toolbar:'#buttons',width:150}
                 ]],
                 done: function (){
                     //表格刷新完后执行

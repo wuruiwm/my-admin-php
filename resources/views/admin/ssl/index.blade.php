@@ -4,10 +4,10 @@
     <div class="layui-form">
         <blockquote class="layui-elem-quote">
             <div class="layui-inline" style="margin-left: 1rem;">
-                <button type="button" class="layui-btn copy" id="key" data-clipboard-text="{{$key}}" onclick="layer.msg('复制成功')">复制key</button>
+                <button type="button" class="layui-btn copy" id="key" data-clipboard-text="{{$key}}" onclick="layer.msg('复制成功')"><i class="fa fa-files-o" aria-hidden="true"></i> 复制key</button>
             </div>
             <div class="layui-inline" style="margin-left: 1rem;">
-                <button type="button" class="layui-btn copy" id="pem" data-clipboard-text="{{$pem}}" onclick="layer.msg('复制成功')">复制pem</button>
+                <button type="button" class="layui-btn copy" id="pem" data-clipboard-text="{{$pem}}" onclick="layer.msg('复制成功')"><i class="fa fa-files-o" aria-hidden="true"></i> 复制pem</button>
             </div>
 
             <div class="layui-inline" style="margin-left: 1rem;font-size: 1rem;">
