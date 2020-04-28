@@ -179,4 +179,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('create','FrpController@create')->name('admin.frp.create')->middleware('permission:frp.create');
         Route::post('https/switch','FrpController@httpsSwitch')->name('admin.frp.https_switch')->middleware('permission:frp.edit');
     });
+    //提取中文翻译
+    Route::group(['prefix'=>'translate','middleware' => 'permission:translate'],function(){
+        Route::get('index','TranslateController@index')->name('admin.translate.index')->middleware('permission:translate.index');
+        Route::post('translate','TranslateController@translate')->name('admin.translate.translate')->middleware('permission:translate.index');
+    });
 });
