@@ -17,7 +17,7 @@ class IndexController extends BaseController
 {
     public function index(Request $request){
         $host = $_SERVER['SERVER_NAME'];
-        if(!empty($data = Frp::where('domain_name',$host)->first())){
+        if(!empty($data = Frp::where('domain_name',$host)->select('is_https')->first())){
             if(!empty($data->is_https)){
                 $url = "https://$host:" . admin_config('frp_https_port');
             }else{

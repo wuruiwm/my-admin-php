@@ -17,7 +17,7 @@ use App\Models\ShortLinksLog;
 class ShortLinksController extends BaseController
 {
     public function index(){
-        if(!empty($ShortLinks = ShortLinks::where('tail',request()->path())->first())){
+        if(!empty($ShortLinks = ShortLinks::where('tail',request()->path())->select('id','tail','link')->first())){
             $ip = get_client_ip();
             $data = [
                 'short_links_id'=>$ShortLinks->id,
