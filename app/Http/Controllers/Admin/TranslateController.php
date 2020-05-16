@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
 use App\Models\Translate;
-use Illuminate\Http\Request;
 use App\Http\Requests\TranslateRequest;
 
 class TranslateController extends BaseController
