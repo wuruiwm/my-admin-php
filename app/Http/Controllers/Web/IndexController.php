@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Request;
 class IndexController extends BaseController
 {
     public function index(Request $request){
-        $host = $_SERVER['SERVER_NAME'];
+        $host = $_SERVER['HTTP_HOST'];
         if(!empty($data = Frp::where('domain_name',$host)->select('is_https')->first())){
             if(!empty($data->is_https)){
                 $url = "https://$host:" . admin_config('frp_https_port');
