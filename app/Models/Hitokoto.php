@@ -46,4 +46,26 @@ class Hitokoto extends Base
         }
         return $type;
     }
+    public static function randFirst($type = 0,$e = 'json'){
+        $hitokoto = self::where(function($query)use($type){
+            $type = intval($type);
+            if(!empty($type)){
+                $query->where('type',$type);
+            }
+        })
+            ->orderByRaw('rand()')
+            ->first();
+        if(empty($hitokoto)){
+            return [];
+        }
+        //json直接返回 如果是纯文本 则取出内容返回 如果是js 则拼接成js代码返回
+        if(!empty($e)){
+            if($e == 'text'){
+                return ['content'=>$hitokoto->content];
+            }else if($e == 'js'){
+                return 'function hitokoto(){document.write("'.$hitokoto->content.'");}';
+            }
+        }
+        return $hitokoto;
+    }
 }
