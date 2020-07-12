@@ -19,7 +19,7 @@ class hitokoto extends Command
      *
      * @var string
      */
-    protected $description = 'hitokoto';
+    protected $description = '爬取一言数据';
 
     /**
      * Create a new command instance.
