@@ -67,7 +67,7 @@ class pushBlogLink extends Command
                     $frp_pid = trim($frp_pid);
                     $shell = "kill -9 ".$frp_pid;
                     exec($shell, $result, $status);
-                    $shell = "nohup ./frps -c frps.ini >/dev/null 2>&1 &";
+                    $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                     exec($shell, $result, $status);
                     $status = false;
                     echo "已重新启动frp";
