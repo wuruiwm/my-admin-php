@@ -11,7 +11,11 @@
 |
 */
 
-Route::match(['get','post'],'/','Web\IndexController@index');
-
 //短链
 Route::fallback('Web\ShortLinksController@index');
+
+Route::group(['namespace'=>'Web'],function (){
+    Route::match(['get','post'],'/','IndexController@index');
+    //三合一收款码
+    Route::get('/pay','PayController@index');
+});

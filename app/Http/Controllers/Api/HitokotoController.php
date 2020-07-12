@@ -7,7 +7,7 @@ use App\Models\Hitokoto;
 
 class HitokotoController extends BaseController
 {
-    public function Detail(Request $request){
+    public function detail(Request $request){
         $type = $request->input('t');//类型 具体看数据库字段备注
         $e = $request->input('e');//返回数据格式 默认是json  text纯文本
         $data = Hitokoto::randFirst($type,$e);

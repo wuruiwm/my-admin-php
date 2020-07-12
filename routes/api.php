@@ -20,5 +20,11 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/ssl','Api\SslController@Detail');
-Route::get('/yiyan','Api\HitokotoController@Detail');
+
+
+Route::group(['namespace'=>'Api'],function (){
+    //ssl证书接口
+    Route::get('/ssl','SslController@detail');
+    //一言接口
+    Route::get('/yiyan','HitokotoController@detail');
+});
