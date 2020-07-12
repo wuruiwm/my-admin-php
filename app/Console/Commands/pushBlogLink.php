@@ -59,6 +59,6 @@ class pushBlogLink extends Command
         $result = curl_exec($curl);
         curl_close($curl);
         $result = json_decode($result,true);
-        echo '成功推送'.$result['success']."条数据，当天剩余可推送条数为".$result['remain']."条";
+        $this->info('成功推送'.$result['success'].'条数据，当天剩余可推送条数为'.$result['remain'].'条');
     }
 }

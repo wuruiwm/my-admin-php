@@ -19,7 +19,7 @@ class ssl extends Command
      *
      * @var string
      */
-    protected $description = '读取配置文件中的ssl证书路径 并存入缓存';
+    protected $description = 'SSL保存到证书路径和缓存 并重启nginx';
 
     /**
      * Create a new command instance.
@@ -39,13 +39,22 @@ class ssl extends Command
     public function handle()
     {
         try {
+            //读取文件 存入缓存
             $key = file_get_contents(admin_config('ssl_key'));
             $pem = file_get_contents(admin_config('ssl_pem'));
             Cache::put('ssl_key',$key);
             Cache::put('ssl_pem',$pem);
-            $this->info("读取证书成功");
+            //写入文件
+            $ssl_cert_path = '/www/ssl_cert/';
+            is_dir($ssl_cert_path) || mkdir($ssl_cert_path,0777,true);
+            file_put_contents($ssl_cert_path.'key.txt',$key);
+            file_put_contents($ssl_cert_path.'cert.txt',$pem);
+            //重启nginx
+            $shell = "/etc/init.d/nginx restart";
+            exec($shell, $result, $status);
+            $this->info("执行成功");
         } catch (\Throwable $th) {
-            $this->error("读取证书失败");
+            $this->error("执行失败");
         }
     }
 }

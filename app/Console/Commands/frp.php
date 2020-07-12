@@ -48,13 +48,13 @@ class frp extends Command
             foreach ($result as $k => $v) {
                 if (strpos($v,'frps') !== false) {
                     $status = false;
-                    echo "frp运行正常";
+                    $this->info("frp运行正常");
                 }
             }
             if($status == true){
                 $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                 exec($shell, $result, $status);
-                echo "检测到frp被关闭,已重启";
+                $this->error("检测到frp被关闭,已重启");
             }
         //重启
         }else if($command == 'restart'){
@@ -68,16 +68,19 @@ class frp extends Command
                     $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                     exec($shell, $result, $status);
                     $status = false;
-                    echo "已重新启动frp";
+                    $this->info("已重新启动frp");
                 }
             }
             if($status == true){
                 $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                 exec($shell, $result, $status);
-                echo "检测到frp没有运行，启动frp";
+                $this->info("检测到frp没有运行，启动frp");
             }
         }else{
-            echo "错误命令\n命令列表:\n守护:php artisan frp guard\n重启:php artisan frp restart\n";
+            $this->error("错误命令");
+            $this->info("正确命令列表");
+            $this->info("守护:php artisan frp guard");
+            $this->info("重启:php artisan frp restart");
         }
     }
 }
