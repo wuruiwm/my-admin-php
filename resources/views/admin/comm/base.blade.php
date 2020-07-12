@@ -29,7 +29,7 @@
             'X-CSRF-TOKEN': "{{ csrf_token() }}"
         },
         dataType:'json',
-        timeout:5000,
+        timeout:30000,
         beforeSend:function(){
             layer.load();
         },

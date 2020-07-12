@@ -19,7 +19,7 @@ class ssl extends Command
      *
      * @var string
      */
-    protected $description = 'ssl';
+    protected $description = '读取配置文件中的ssl证书路径 并存入缓存';
 
     /**
      * Create a new command instance.
