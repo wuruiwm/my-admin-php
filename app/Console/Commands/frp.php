@@ -48,7 +48,7 @@ class pushBlogLink extends Command
         //守护
         if($command == 'guard'){
             foreach ($result as $k => $v) {
-                if (strpos($v,'frps.ini') !== false) {
+                if (strpos($v,'frps') !== false) {
                     $status = false;
                     echo "frp运行正常";
                 }
@@ -61,7 +61,7 @@ class pushBlogLink extends Command
         //重启
         }else if($command == 'restart'){
             foreach ($result as $k => $v) {
-                if (strpos($v,'frps.ini') !== false) {
+                if (strpos($v,'frps') !== false) {
                     $frp_pid_res = substr($v,0,16);
                     $frp_pid = str_replace('root','',$frp_pid_res);
                     $frp_pid = trim($frp_pid);
