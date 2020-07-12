@@ -58,6 +58,7 @@ class Password extends Base
     public static function getData($request){
         $data = $request->validated();
         $data["remark"] = !empty($request->input("remark")) ? $request->input("remark") : '';
+        !empty($data["user"]) || $data['user'] = '';
         if(!empty(admin_config("is_password_encrypt"))){
             $data['title'] = password_encrypt($data['title']);
             $data['user'] = password_encrypt($data['user']);
