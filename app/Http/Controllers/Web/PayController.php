@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\View;
 
 class PayController extends BaseController
 {
+    //三合一收款码
     public function index(){
         return View::make('web.pay');
     }

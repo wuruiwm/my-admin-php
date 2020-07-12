@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\View;
 class IndexController extends BaseController
 {
     public function index(Request $request){
+        //获取当前域名
         $domain_name = $_SERVER['HTTP_HOST'];
         //frp穿透内网chrome
         if($domain_name == 'chrome.nikm.cn'){

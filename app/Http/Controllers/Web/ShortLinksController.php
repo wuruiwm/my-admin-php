@@ -16,6 +16,7 @@ use App\Models\ShortLinksLog;
 
 class ShortLinksController extends BaseController
 {
+    //短链跳转 如果没有短链，则返回404
     public function index(){
         if(!empty($ShortLinks = ShortLinks::where('tail',request()->path())->select('id','tail','link')->first())){
             $ip = get_client_ip();
