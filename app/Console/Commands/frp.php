@@ -41,17 +41,19 @@ class frp extends Command
 
         $shell = "ps -aux|grep frp| grep -v grep";
         exec($shell, $result, $status);
-        $status = true;
+
+        //使用$bool做状态码  初始值为真 如果frp进程存在 则设置为false
+        $bool = true;
 
         //守护
         if($command == 'guard'){
             foreach ($result as $k => $v) {
                 if (strpos($v,'frps') !== false) {
-                    $status = false;
+                    $bool = false;
                     $this->info("frp运行正常");
                 }
             }
-            if($status == true){
+            if($bool == true){
                 $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                 exec($shell, $result, $status);
                 $this->error("检测到frp被关闭,已重启");
@@ -67,11 +69,11 @@ class frp extends Command
                     exec($shell, $result, $status);
                     $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                     exec($shell, $result, $status);
-                    $status = false;
+                    $bool = false;
                     $this->info("已重新启动frp");
                 }
             }
-            if($status == true){
+            if($bool == true){
                 $shell = "nohup /root/frp/frps -c /root/frp/frps.ini >/dev/null 2>&1 &";
                 exec($shell, $result, $status);
                 $this->info("检测到frp没有运行，启动frp");

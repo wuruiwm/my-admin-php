@@ -39,13 +39,16 @@ class pushBlogLink extends Command
      */
     public function handle()
     {
+        //连接博客数据库查询文章表
         $contents_list = DB::connection('blog_mysql')->table('contents')->get();
+        //处理数据
         $url_list = [];
         foreach ($contents_list as $k =>$v){
             if($v->cid == $v->slug){
                 $url_list[] = 'https://www.nikm.cn/archives/'.$v->cid.'.html';
             }
         }
+        //开始推送
         $api = 'http://data.zz.baidu.com/urls?site=https://www.nikm.cn&token=Wn8c18vT1naD8X2K';
         $curl = curl_init();
         $options =  array(

@@ -38,6 +38,7 @@ class hitokoto extends Command
      */
     public function handle()
     {
+        //获取需要爬取的条数
         $num = $this->argument('num');
         $num = intval($num);
         $success = 0;
