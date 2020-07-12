@@ -42,4 +42,16 @@ class Ssh extends Base
         }
         return $host;
     }
+    //提取字符串中的域名 或者ip返回
+    public static function translateDomainIP($string){
+        $string = trim($string);
+        if(filter_var($string,FILTER_VALIDATE_IP)){
+            $host = $string;
+        }else if(!empty(parse_url($string)['host'])){
+            $host = parse_url($string)['host'];
+        }else{
+            $host = $string;
+        }
+        return $host;
+    }
 }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','Web\IndexController@index');
+Route::match(['get','post'],'/','Web\IndexController@index');
 
 //短链
 Route::fallback('Web\ShortLinksController@index');

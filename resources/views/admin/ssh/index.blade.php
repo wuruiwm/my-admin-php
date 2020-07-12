@@ -144,7 +144,7 @@
                 //data就是一行的数据
                 var data = obj.data;
                 if(obj.event === 'connect'){
-                    var url = '{{ admin_config('ssh_connect_url') }}?hostname='+ data.host +'&username='+ data.user +'&password='+ window.btoa(data.password);
+                    var url = '{{ admin_config('ssh_connect_url') }}?hostname='+ data.host +'&username='+ encodeURI(data.user) +'&password='+ window.btoa(data.password)+'&port='+data.port;
                     layer.open({
                         type: 2,
                         title: data.title,
