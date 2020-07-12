@@ -28,7 +28,7 @@ class IndexController extends BaseController
             return View::make('web.menu');
         }
         //webssh
-        if($domain_name == 'ssh.nikm.cn' || true){
+        if($domain_name == 'ssh.nikm.cn'){
             $method = $request->method();
             if($method == 'GET'){
                 //渲染webssh页面模板
