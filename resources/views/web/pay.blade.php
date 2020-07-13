@@ -9,13 +9,13 @@
     <script>
         var setting = {
             // 在以下双引号中粘贴QQ钱包收款链接
-            qqUrl: "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&a=1&u=1250201168&ac=289EA3209CEFB3D98CD140EF92F1C2474D54816FED899014C13C6D9E7F401898&n=傍晚升起的太阳&f=wallet",
+            qqUrl: "{{admin_config('qq_pay_link')}}",
 
             // 在以下双引号中粘贴微信收款链接
-            wechatUrl: "https://payapp.weixin.qq.com/qr/AQGyxow2NI9OZvHMqTB2gw1V?t=CwAB#wechat_pay",
+            wechatUrl: "{{admin_config('wechat_pay_link')}}",
 
             // 在以下双引号中粘贴支付宝收款链接
-            aliUrl: "HTTPS://QR.ALIPAY.COM/TSX06132QZMEFG42EHAL3E",
+            aliUrl: "{{admin_config('alipay_pay_link')}}",
 
             // 用于动态生成二维码的API，连图官方的，不需要修改。
             qrcodeApi: "http://qr.liantu.com/api.php?text="
