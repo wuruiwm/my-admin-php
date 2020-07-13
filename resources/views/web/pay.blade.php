@@ -118,22 +118,22 @@
     </div>
     <div class="code-footer">长按以上二维码向我付款</div>
 </div>
-
+<script src="https://cdn.nikm.cn/js/jr-qrcode.js"></script>
 <script>
     if(navigator.userAgent.match(/Alipay/i)) {
         // 支付宝
         window.location.href = setting.aliUrl;
     } else if(navigator.userAgent.match(/MicroMessenger\//i)) {
         // 微信
-        document.getElementById("wechat-url").src = setting.qrcodeApi + urlEncode(setting.wechatUrl);
+        document.getElementById("wechat-url").src = jrQrcode.getQrBase64(setting.wechatUrl);
         document.getElementById("code-wechat").style.display = "block";
     } else if(navigator.userAgent.match(/QQ\//i)) {
         // QQ
-        document.getElementById("qq-url").src = setting.qrcodeApi + urlEncode(setting.qqUrl);
+        document.getElementById("qq-url").src = jrQrcode.getQrBase64(setting.qqUrl);
         document.getElementById("code-qq").style.display = "block";
     } else {
         // 其它，显示“万能码”
-        document.getElementById("page-url").src = setting.qrcodeApi + urlEncode(window.location.href);
+        document.getElementById("page-url").src = jrQrcode.getQrBase64(window.location.href);
         document.getElementById("code-all").style.display = "block";
     }
     function urlEncode(String) {
