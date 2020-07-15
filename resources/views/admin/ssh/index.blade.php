@@ -219,7 +219,9 @@
                         layer.closeAll();
                         //提交数据成功后重载表格
                         table.reload('table',{ //表格的id
-                            url:list_url,
+                            page: {
+                                curr: 1,
+                            }
                         });
                     }
                     layer.msg(res.msg);
@@ -228,7 +230,9 @@
             $('#search').click(function(){
                 //传递where条件实现搜索，并且重载表格数据
                 table.reload('table',{ //表格的id
-                    url:list_url,
+                    page: {
+                        curr: 1,
+                    },
                     where:{
                         'keyword':$('#search_keyword').val(),
                     }
