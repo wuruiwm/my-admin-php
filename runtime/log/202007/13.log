@@ -1,0 +1,31 @@
+---------------------------------------------------------------
+[ 2020-07-13T14:41:59+08:00 ] 47.101.200.166 GET my_test.nikm.cn/
+[运行时间：0.165241s] [吞吐率：6.05req/s] [内存消耗：569.41kb] [文件加载：50]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-encoding' => 'gzip',
+  'connection' => 'Keep-Alive',
+  'host' => 'my_test.nikm.cn',
+  'user-agent' => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/my_test.nikm.cn/app/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/index/view/index/menu.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001340s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `jump` [ RunTime:0.002110s ]
+[ sql ] [ SQL ] SELECT `domain_name`,`is_https` FROM `jump` WHERE  `domain_name` = 'my_test.nikm.cn' LIMIT 1 [ RunTime:0.000353s ]

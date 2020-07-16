@@ -1,0 +1,45 @@
+<!--
+ * @Author: 傍晚升起的太阳
+ * @QQ: 1250201168
+ * @Email: wuruiwm@qq.com
+ * @Date: 2019-10-23 11:33:55
+ * @LastEditors: 傍晚升起的太阳
+ * @LastEditTime: 2019-10-24 17:16:52
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<body>
+<script type="text/javascript" src="https://3gimg.qq.com/lightmap/components/geolocation/geolocation.min.js"></script>
+<script src="https://cdn.nikm.cn/js/jquery.js"></script>
+<script type="text/JavaScript">
+    var geolocation = new qq.maps.Geolocation("{$key}", "myapp");
+    function showPosition(position) {
+    	var url = "{:url('api/location/index')}";
+    	var address = position.province+position.city+position.district+position.addr;
+        var data = {
+            'tail':'{$tail}',
+            'address':address,
+            'lat':position.lat,
+            'lng':position.lng,
+        };
+    	$.post(url,data,function(){})
+    };
+    function errCallback(){
+    	var url = "{:url('api/location/index')}";
+        var data = {
+            'tail':'{$tail}',
+            'address':'未知地址',
+            'lat':'未知',
+            'lng':'未知',
+        };
+    	$.post(url,data,function(){})
+    }
+    geolocation.getIpLocation(showPosition,errCallback);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+---------------------------------------------------------------
+[ 2020-07-16T23:01:32+08:00 ] 114.102.138.250 GET my_test.nikm.cn/
+[运行时间：0.005330s] [吞吐率：187.62req/s] [内存消耗：437.41kb] [文件加载：50]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'http://47.103.14.142:8888/site',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'cross-site',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/my_test.nikm.cn/app/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/index/view/index/menu.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000445s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `jump` [ RunTime:0.000788s ]
+[ sql ] [ SQL ] SELECT `domain_name`,`is_https` FROM `jump` WHERE  `domain_name` = 'my_test.nikm.cn' LIMIT 1 [ RunTime:0.000322s ]

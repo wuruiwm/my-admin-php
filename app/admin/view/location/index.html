@@ -1,0 +1,172 @@
+<!--
+ * @Author: 傍晚升起的太阳
+ * @QQ: 1250201168
+ * @Email: wuruiwm@qq.com
+ * @Date: 2019-10-23 09:51:52
+ * @LastEditors: 傍晚升起的太阳
+ * @LastEditTime: 2019-10-25 11:23:28
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>定位列表</title>
+  <link rel="stylesheet" href="https://cdn.nikm.cn/js/layui/css/layui.css">
+  <link rel="stylesheet" href="https://cdn.nikm.cn/css/font-awesome/css/font-awesome.min.css">
+  <style>
+    .layui-input{
+      display: inline;
+      width: 75%;
+    }
+  </style>
+</head>
+<body class="layui-layout-body" style="overflow-y:visible;">
+
+<!-- 顶部操作栏 -->
+<div class="layui-form">
+    <blockquote class="layui-elem-quote">
+        <div class="layui-inline" style="margin-left: 2rem;">
+            <button type="button" class="layui-btn" id="add">新增定位链接</button>     
+        </div>
+        <div class="layui-inline" style="margin-left: 1rem;">
+            <input type="text" name="title" placeholder="输入要搜索的值，支持链接后缀,地址" class="layui-input" id="search_name" style="width:18rem;">
+        </div>
+        <div class="layui-inline" style="margin-left: 1rem;">
+            <button type="button" class="layui-btn" id="search">搜索</button>
+        </div>
+    </blockquote>
+</div>
+
+<!-- 表格 -->                 
+<table class="layui-hide" id="table" lay-filter="table">
+</table>
+
+<!-- 新增编辑弹窗   -->
+<div id="post" class="layui-form layui-form-pane" style="display: none;margin:1rem 3rem;">
+  <div class="layui-form-item">
+    <label class="layui-form-label">链接后缀</label>
+    <div class="layui-input-block">
+      <input type="text" placeholder="请输入链接后缀" class="layui-input" id="tail">
+      <button class="layui-btn" id="rand" style="margin-left: 5%;">随机生成</button>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" id="submit">立即提交</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="buttons">
+  <a class="layui-btn layui-btn-xs copy" data-clipboard-text="{{d.tail_url}}" onclick="layer.msg('复制成功')">复制链接</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="https://cdn.nikm.cn/js/jquery.js"></script>
+<script src="https://cdn.nikm.cn/js/clipboard.js"></script>
+<script src="https://cdn.nikm.cn/js/layui/layui.js"></script>
+<script>
+layui.use(['layer','table'], function(){
+  var table = layui.table;
+  var layer = layui.layer;
+  table.render({
+    elem: '#table' //表格id
+    ,url:"{:url('admin/location/list')}"//list接口地址
+    ,cellMinWidth: 80 //全局定义常规单元格的最小宽度
+    ,cols: [[
+    //align属性是文字在列表中的位置 可选参数left center right
+    //sort属性是排序功能
+    //title是这列的标题
+    //field是取接口的字段值
+    //width是宽度，不填则自动根据值的长度
+      {field:'id', title: 'ID',align: 'center',sort: true},
+      {field:'tail',title: '定位链接', align:'center'},
+      {field:'address', title: '地址', align:'center'},
+      {field:'lat',title: 'Lat', align:'center'},
+      {field:'lng',title: 'Lng', align:'center'},
+      {field:'ip',title: 'IP', align:'center'},
+      {field:'create_time',title: '创建时间', align:'center'},
+      {field:'update_time',title: '修改时间', align:'center'},
+      {fixed:'right', title: '操作', align:'center', toolbar: '#buttons'}
+    ]]
+    ,page: true//是否分页
+    ,limit: 15//每个多少行
+    ,limits:[15, 25, 45, 60]//页面下的切换条数
+    ,done: function () {
+      new Clipboard('.copy');
+    }
+  });
+  //监听tool里面的按钮 根据按钮的lay-event属性的值 触发不同的事件
+  table.on('tool(table)', function(obj){
+      console.log(obj);
+      //data就是一行的数据
+      var data = obj.data;
+      //删除
+      if(obj.event === 'del'){
+          layer.confirm('真的删除吗', function(index){
+              var url = "{:url('admin/location/del')}" + '?id=' + data.id;
+              $.get(url,function(res){
+                if(res.status == 1){
+                  obj.del();//删除表格这行数据
+                }
+                layer.msg(res.msg);
+              },'json')
+          });
+          //编辑
+      }
+    });
+    //搜索
+    $('#search').on('click',function(){
+        //传递where条件实现搜索，并且重载表格数据
+        table.reload('table', { //表格的id
+            url:"{:url('admin/location/list')}",
+            where:{
+                'name':$('#search_name').val(),
+            }
+        });
+    });
+    //提交
+    $('#submit').click(function(){
+          var url = "{:url('admin/location/post')}";
+          var data = {
+            tail:$('#tail').val(),
+          };
+          $.post(url,data,function(res){
+              if(res.status == 1){
+                  layer.closeAll();
+                  //提交数据后重载表格
+                  table.reload('table', { //表格的id
+                      url:"{:url('admin/location/list')}",
+                  });
+              }
+              layer.msg(res.msg);
+          },'json');
+    });
+});
+//新增
+$('#add').click(function(){
+      //初始化弹窗表单的值为空
+      $('#tail').val('');
+      layer.open({
+          type: 1,
+          title:'新增',
+          skin: 'layui-layer-rim', //加上边框
+          area: ['50rem;', '15rem;'], //宽高
+          content: $('#post'),
+      });
+})
+//监听按下回车键时，触发搜索
+$(document).on('keydown', function(e){
+    if(e.keyCode == 13){
+        $('#search').click();
+    }
+})
+$('#rand').click(function(){
+    $.get("{:url('admin/location/rand')}",function(res){
+        if(res.status == 1){
+          $('#tail').val(res.rand);
+        }
+    },'json')
+})
+</script>
+</body>
+</html>

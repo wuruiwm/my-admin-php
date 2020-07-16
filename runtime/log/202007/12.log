@@ -1,0 +1,1235 @@
+---------------------------------------------------------------
+[ 2020-07-12T15:51:13+08:00 ] 114.102.139.242 GET my_test.nikm.cn/
+[运行时间：0.168188s] [吞吐率：5.95req/s] [内存消耗：581.93kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://47.103.14.142:8888/site',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ /www/wwwroot/my_test.nikm.cn/app/index/controller/Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/index/view/index/menu.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000452s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `jump` [ RunTime:0.005249s ]
+[ sql ] [ SQL ] SELECT `domain_name`,`is_https` FROM `jump` WHERE  `domain_name` = 'my_test.nikm.cn' LIMIT 1 [ RunTime:0.000467s ]
+---------------------------------------------------------------
+[ 2020-07-12T15:54:27+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/index/index.html
+[运行时间：0.031073s] [吞吐率：32.18req/s] [内存消耗：533.90kb] [文件加载：54]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Index->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Index.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/index/index.html [ array (
+  0 => 'menus',
+  1 => 'cookie',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000478s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000939s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000349s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000822s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Index'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `is_display` = 1 ORDER BY `orders` ASC [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000899s ]
+[ sql ] [ SQL ] SELECT * FROM `admin` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `attachment` [ RunTime:0.001088s ]
+[ sql ] [ SQL ] SELECT * FROM `attachment` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000382s ]
+---------------------------------------------------------------
+[ 2020-07-12T15:54:28+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/main/index
+[运行时间：0.026151s] [吞吐率：38.24req/s] [内存消耗：515.05kb] [文件加载：54]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'main',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Main->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Main.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/main/index.html [ array (
+  0 => 'info',
+  1 => 'web',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000578s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000732s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Main'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'main=' LIMIT 1 [ RunTime:0.000522s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Main'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000458s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin` [ RunTime:0.000831s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin` LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_cate` LIMIT 1 [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `attachment` [ RunTime:0.000783s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `attachment` LIMIT 1 [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `attachment` WHERE  `status` = 0 LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `attachment` WHERE  `status` = -1 LIMIT 1 [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_log` [ RunTime:0.000818s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1593705600 AND `create_time` <= 1593792000 ) LIMIT 1 [ RunTime:0.000382s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1593792000 AND `create_time` <= 1593878400 ) LIMIT 1 [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1593878400 AND `create_time` <= 1593964800 ) LIMIT 1 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1593964800 AND `create_time` <= 1594051200 ) LIMIT 1 [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1594051200 AND `create_time` <= 1594137600 ) LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1594137600 AND `create_time` <= 1594224000 ) LIMIT 1 [ RunTime:0.000336s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1594224000 AND `create_time` <= 1594310400 ) LIMIT 1 [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1594310400 AND `create_time` <= 1594396800 ) LIMIT 1 [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1594396800 AND `create_time` <= 1594483200 ) LIMIT 1 [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `admin_log` WHERE  `admin_menu_id` = 50  AND ( `create_time` >= 1594483200 AND `create_time` <= 1594569600 ) LIMIT 1 [ RunTime:0.000303s ]
+---------------------------------------------------------------
+[ 2020-07-12T15:54:29+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/password/index.html
+[运行时间：0.011792s] [吞吐率：84.80req/s] [内存消耗：487.55kb] [文件加载：54]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'password',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Password->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Password.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/password/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000423s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000705s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'password=' LIMIT 1 [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000326s ]
+---------------------------------------------------------------
+[ 2020-07-12T15:54:30+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/password/list.html?page=1&limit=15
+[运行时间：0.017632s] [吞吐率：56.72req/s] [内存消耗：510.77kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'password',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/password/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Password->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Password.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000425s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000680s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'password=' LIMIT 1 [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `password` [ RunTime:0.001020s ]
+[ sql ] [ SQL ] SELECT * FROM `password` WHERE  ( `name` LIKE '%%' OR `user` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 0,15 [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `password` WHERE  ( `name` LIKE '%%' OR `user` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000343s ]
+---------------------------------------------------------------
+[ 2020-07-12T15:54:31+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/password/list.html?page=2&limit=15
+[运行时间：0.007549s] [吞吐率：132.47req/s] [内存消耗：510.00kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'password',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/password/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '2',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Password->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Password.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000483s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000604s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'password=' LIMIT 1 [ RunTime:0.000449s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `password` [ RunTime:0.000509s ]
+[ sql ] [ SQL ] SELECT * FROM `password` WHERE  ( `name` LIKE '%%' OR `user` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 15,15 [ RunTime:0.000312s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `password` WHERE  ( `name` LIKE '%%' OR `user` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000317s ]
+---------------------------------------------------------------
+[ 2020-07-12T15:58:33+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/password/list.html?page=3&limit=15
+[运行时间：0.008144s] [吞吐率：122.79req/s] [内存消耗：509.56kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'password',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/password/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '3',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Password->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Password.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000531s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000936s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000745s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'password=' LIMIT 1 [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Password'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000334s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `password` [ RunTime:0.000668s ]
+[ sql ] [ SQL ] SELECT * FROM `password` WHERE  ( `name` LIKE '%%' OR `user` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 30,15 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `password` WHERE  ( `name` LIKE '%%' OR `user` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000284s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:19+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/yiyan/index.html
+[运行时间：0.013480s] [吞吐率：74.18req/s] [内存消耗：479.41kb] [文件加载：54]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'yiyan',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Yiyan.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/yiyan/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000558s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.001105s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000395s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.001004s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Yiyan'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'yiyan=' LIMIT 1 [ RunTime:0.000545s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Yiyan'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000610s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:19+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/yiyan/list.html?page=1&limit=15
+[运行时间：0.009379s] [吞吐率：106.62req/s] [内存消耗：508.98kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'yiyan',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/yiyan/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Yiyan->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Yiyan.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000482s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000769s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000588s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Yiyan'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'yiyan=' LIMIT 1 [ RunTime:0.000392s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Yiyan'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000732s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` WHERE  ( `content` LIKE '%%' OR `from` LIKE '%%' OR `by` LIKE '%%' ) ORDER BY `id` ASC LIMIT 0,15 [ RunTime:0.000414s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` WHERE  ( `content` LIKE '%%' OR `from` LIKE '%%' OR `by` LIKE '%%' ) LIMIT 1 [ RunTime:0.001290s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:20+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/jump/index.html
+[运行时间：0.010465s] [吞吐率：95.56req/s] [内存消耗：479.34kb] [文件加载：54]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'jump',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Jump->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Jump.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/jump/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000448s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000738s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000559s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'jump=' LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000302s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:20+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/jump/list.html?page=1&limit=15
+[运行时间：0.009759s] [吞吐率：102.47req/s] [内存消耗：501.30kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'jump',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/jump/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Jump->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Jump.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000779s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000904s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'jump=' LIMIT 1 [ RunTime:0.000518s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `jump` [ RunTime:0.000871s ]
+[ sql ] [ SQL ] SELECT * FROM `jump` WHERE  ( `domain_name` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 0,15 [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `jump` WHERE  ( `domain_name` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000317s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:20+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/jump/index.html
+[运行时间：0.006316s] [吞吐率：158.33req/s] [内存消耗：458.74kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'jump',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Jump->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Jump.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/jump/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000545s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000515s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'jump=' LIMIT 1 [ RunTime:0.000425s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000336s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:21+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/jump/list.html?page=1&limit=15
+[运行时间：0.006200s] [吞吐率：161.29req/s] [内存消耗：500.72kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'jump',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/jump/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Jump->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Jump.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000467s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000789s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000527s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'jump=' LIMIT 1 [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `jump` [ RunTime:0.000508s ]
+[ sql ] [ SQL ] SELECT * FROM `jump` WHERE  ( `domain_name` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 0,15 [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `jump` WHERE  ( `domain_name` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000225s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:02:21+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/ssl/index.html
+[运行时间：0.032218s] [吞吐率：31.04req/s] [内存消耗：487.71kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ssl',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ssl->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Ssl.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/ssl/index.html [ array (
+  0 => 'end_time',
+  1 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000489s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000764s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Ssl'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'ssl=' LIMIT 1 [ RunTime:0.000402s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Ssl'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000408s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:15:35+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/short_links/index.html
+[运行时间：0.011749s] [吞吐率：85.11req/s] [内存消耗：487.05kb] [文件加载：54]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'short_links',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ShortLinks->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/ShortLinks.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/short_links/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000495s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000849s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000670s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'ShortLinks'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'short_links=' LIMIT 1 [ RunTime:0.000385s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'ShortLinks'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000312s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:15:35+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/short_links/list.html?page=1&limit=15
+[运行时间：0.008492s] [吞吐率：117.76req/s] [内存消耗：496.04kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'short_links',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/short_links/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ShortLinks->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/ShortLinks.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000506s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000794s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000591s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'ShortLinks'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'short_links=' LIMIT 1 [ RunTime:0.000431s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'ShortLinks'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `short_links` [ RunTime:0.000755s ]
+[ sql ] [ SQL ] SELECT * FROM `short_links` WHERE  ( `tail` LIKE '%%' OR `link` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 0,15 [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `short_links` WHERE  ( `tail` LIKE '%%' OR `link` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000298s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:15:36+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/jump/index.html
+[运行时间：0.006049s] [吞吐率：165.32req/s] [内存消耗：458.74kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'jump',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Jump->index[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Jump.php ]
+[ info ] [ VIEW ] /www/wwwroot/my_test.nikm.cn/public/../app/admin/view/jump/index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000450s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000524s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'index'  AND `type` = 1  AND `parameter` = 'jump=' LIMIT 1 [ RunTime:0.000406s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'index'  AND `type` = 1 LIMIT 1 [ RunTime:0.000309s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:15:36+08:00 ] 114.102.139.242 GET my_test.nikm.cn/admin/jump/list.html?page=1&limit=15
+[运行时间：0.006126s] [吞吐率：163.24req/s] [内存消耗：500.72kb] [文件加载：52]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'jump',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'referer' => 'https://my_test.nikm.cn/admin/jump/index.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+  'page' => '1',
+  'limit' => '15',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Jump->list[ /www/wwwroot/my_test.nikm.cn/app/admin/controller/Jump.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000494s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_cate` [ RunTime:0.000688s ]
+[ sql ] [ SQL ] SELECT `permissions` FROM `admin_cate` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `admin_menu` [ RunTime:0.000544s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'list'  AND `type` = 1  AND `parameter` = 'jump=' LIMIT 1 [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT * FROM `admin_menu` WHERE  `module` = 'admin'  AND `controller` = 'Jump'  AND `function` = 'list'  AND `type` = 1 LIMIT 1 [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `jump` [ RunTime:0.000614s ]
+[ sql ] [ SQL ] SELECT * FROM `jump` WHERE  ( `domain_name` LIKE '%%' OR `remark` LIKE '%%' ) ORDER BY `id` ASC LIMIT 0,15 [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `jump` WHERE  ( `domain_name` LIKE '%%' OR `remark` LIKE '%%' ) LIMIT 1 [ RunTime:0.000252s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:42:37+08:00 ] 114.102.139.242 GET my_test.nikm.cn/yiyan
+[运行时间：0.003383s] [吞吐率：295.60req/s] [内存消耗：361.69kb] [文件加载：38]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'yiyan',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000477s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `short_links` [ RunTime:0.000889s ]
+[ sql ] [ SQL ] SELECT * FROM `short_links` WHERE  `tail` = 'yiyan' LIMIT 1 [ RunTime:0.000338s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:42:56+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.016297s] [吞吐率：61.36req/s] [内存消耗：248.77kb] [文件加载：47]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+[ error ] [0]MISCONF Redis is configured to save RDB snapshots, but it is currently not able to persist on disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.[/www/wwwroot/my_test.nikm.cn/thinkphp/library/think/cache/driver/Redis.php:121]
+---------------------------------------------------------------
+[ 2020-07-12T16:43:31+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.006429s] [吞吐率：155.55req/s] [内存消耗：445.11kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Yiyan.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000393s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000846s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` LIMIT 1 [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` LIMIT 950,1 [ RunTime:0.000615s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:43:33+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.006354s] [吞吐率：157.38req/s] [内存消耗：445.14kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Yiyan.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000464s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000720s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` LIMIT 1 [ RunTime:0.000759s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` LIMIT 1846,1 [ RunTime:0.001018s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:43:33+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.005742s] [吞吐率：174.15req/s] [内存消耗：445.14kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Yiyan.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000444s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000743s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` LIMIT 1 [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` LIMIT 1502,1 [ RunTime:0.000854s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:43:33+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.006000s] [吞吐率：166.67req/s] [内存消耗：445.20kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Yiyan.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000498s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` LIMIT 1 [ RunTime:0.000776s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` LIMIT 1403,1 [ RunTime:0.000892s ]
+---------------------------------------------------------------
+[ 2020-07-12T16:43:34+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.007759s] [吞吐率：128.88req/s] [内存消耗：445.41kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl; XSRF-TOKEN=eyJpdiI6InZTM1hRV1ZZaUtDeUdCVGxqaUZ4TVE9PSIsInZhbHVlIjoiaTU2QkJrODl2ZTN5clJYRGlvOU9vS3BOSEdrQlwvWWI4RnVrYVlmZ1Z5TGpCaXNSODVYK2dBZzJmdGl0U1k3MWEiLCJtYWMiOiI2NjIxYmU3OTU2MjRkMDk5NmQ1ODk0NjBiZjk4MTRjYmYwNjNjYTZkYjZiNmE1OWFkZWE4MDE4ZTA4NTFlNzE3In0%3D; my_session=eyJpdiI6Ilh3QWhhOTJvZWZ4R0RvXC9sdk1wMWd3PT0iLCJ2YWx1ZSI6IndmZE01VHpsYWdNXC9oTjJBV2pIWGdUd21LdTZYY28ySllLcXFlZ2VSQWVoTHFcL1ZtZDR1cVczTE9VSGgyYlRTOSIsIm1hYyI6IjAzYTgwZjA4MzBlOTc2MmY4ODViNDk2MTJhNDlhYWQ4Mjk4MmMwZGVmOTIxZTYyZDZkN2MzYzJkYTFmNjAzZWUifQ%3D%3D',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Yiyan.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000561s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000964s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` LIMIT 1 [ RunTime:0.001047s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` LIMIT 1534,1 [ RunTime:0.001289s ]
+---------------------------------------------------------------
+[ 2020-07-12T19:00:53+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/yiyan
+[运行时间：0.006686s] [吞吐率：149.57req/s] [内存消耗：443.05kb] [文件加载：53]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'yiyan',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Yiyan->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Yiyan.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000375s ] mysql:host=127.0.0.1;port=3306;dbname=my_test;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `yiyan` [ RunTime:0.000864s ]
+[ sql ] [ SQL ] SELECT COUNT(id) AS tp_count FROM `yiyan` LIMIT 1 [ RunTime:0.000665s ]
+[ sql ] [ SQL ] SELECT * FROM `yiyan` LIMIT 2087,1 [ RunTime:0.001061s ]
+---------------------------------------------------------------
+[ 2020-07-12T19:00:57+08:00 ] 114.102.139.242 GET my_test.nikm.cn/api/ssl
+[运行时间：0.004217s] [吞吐率：237.13req/s] [内存消耗：276.00kb] [文件加载：43]
+[ info ] [ LANG ] /www/wwwroot/my_test.nikm.cn/thinkphp/lang/zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'ssl',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=7dt8b0vgd9rhia4kdrjb9jdlkl',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'my_test.nikm.cn',
+  'content-length' => '',
+  'content-type' => '',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\api\controller\Ssl->index[ /www/wwwroot/my_test.nikm.cn/app/api/controller/Ssl.php ]
+[ info ] [ LOG ] INIT File

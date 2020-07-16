@@ -1,0 +1,96 @@
+<!--
+ * @Author: 傍晚升起的太阳
+ * @QQ: 1250201168
+ * @Email: wuruiwm@qq.com
+ * @Date: 2019-10-21 09:29:55
+ * @LastEditors: 傍晚升起的太阳
+ * @LastEditTime: 2019-10-26 13:31:38
+ -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta charset="utf-8">
+   <title>提取中文翻译</title>
+   <link rel="stylesheet" href="https://cdn.nikm.cn/js/layui/css/layui.css">
+   <link rel="stylesheet" href="https://cdn.nikm.cn/css/font-awesome/css/font-awesome.min.css">
+ </head>
+ <body class="layui-layout-body" style="overflow-y:visible;">
+<!-- 顶部操作栏 -->
+    <div class="layui-form">
+        <blockquote class="layui-elem-quote">
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <button type="button" class="layui-btn" id="translate">翻译</button>
+            </div>
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <button type="button" class="layui-btn" id="translate_dst_copy" data-clipboard-text="">复制翻译后文本</button>
+            </div>
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <select lay-verify="required" id="type">
+			        <option value="en">英文</option>
+			        <option value="cht">繁体中文</option>
+			        <option value="yue">粤语</option>
+			        <option value="wyw">文言文</option>
+			        <option value="jb">日语</option>
+			        <option value="kor">韩语</option>
+			        <option value="fra">法语</option>
+			        <option value="spa">西班牙语</option>
+			        <option value="th">泰语</option>
+			        <option value="ara">阿拉伯语</option>
+			        <option value="ru">俄语</option>
+			        <option value="pt">葡萄牙语</option>
+			        <option value="de">德语</option>
+			        <option value="it">意大利语</option>
+			        <option value="el">希腊语</option>
+			        <option value="nl">芬兰语</option>
+			        <option value="pl">波兰语</option>
+			        <option value="bul">保加利亚语</option>
+			        <option value="est">爱沙尼亚语</option>
+			        <option value="dan">丹麦语</option>
+			        <option value="cs">捷克语</option>
+			        <option value="rom">罗马尼亚语</option>
+			        <option value="slo">斯洛文尼亚语</option>
+			        <option value="swe">瑞典语</option>
+			        <option value="hu">叙利亚语</option>
+			        <option value="vie">越南语</option>
+			    </select>
+        	</div>
+        </blockquote>
+    </div>
+	<div class="layui-form" style="margin-right: 5rem;">
+		<div class="layui-form-item layui-form-text">
+	    	<label class="layui-form-label">原文本</label>
+	    	<div class="layui-input-block">
+	    		<textarea name="desc" placeholder="请输入需要翻译的文本" class="layui-textarea" id="translate_src_text" style="height: 20rem;"></textarea>
+	    	</div>
+		</div>
+	</div>
+	<div class="layui-form" style="margin-right: 5rem;">
+		<div class="layui-form-item layui-form-text">
+	    	<label class="layui-form-label">翻译后文本</label>
+	    	<div class="layui-input-block">
+	    		<textarea name="desc" placeholder="翻译后的文本会出现在这里喔" class="layui-textarea" id="translate_dst_text" style="height: 20rem;"></textarea>
+	    	</div>
+		</div>
+	</div>
+ <script src="https://cdn.nikm.cn/js/jquery.js"></script>
+ <script src="https://cdn.nikm.cn/js/clipboard.js"></script>
+ <script src="https://cdn.nikm.cn/js/layui/layui.js"></script>
+ <script>
+	new Clipboard('#translate_dst_copy');
+	layui.use(['layer','form'], function(){
+		var layer = layui.layer;
+	});
+ 	$('#translate').click(function(){
+ 		$.post("{:url('admin/translate/translate')}",{text:$('#translate_src_text').val(),type:$('#type').val()},function(res){
+ 			if(res.status == 1){
+ 				$('#translate_dst_text').val(res.text);
+ 				$('#translate_dst_copy').attr('data-clipboard-text',res.text);
+ 			 	layer.msg(res.msg);
+ 			}else{
+ 				layer.msg(res.msg);
+ 			}
+ 		},'json')
+ 	});
+ </script>
+ </body>
+ </html>
