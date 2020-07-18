@@ -18,4 +18,6 @@ Route::group(['namespace'=>'Web'],function (){
     Route::match(['get','post'],'/','IndexController@index');
     //三合一收款码
     Route::get('/pay','PayController@index');
+    //microsoft office365 自助注册 提交接口
+    Route::post('/microsoft/submit','MicrosoftController@submit')->name('microsoft.submit');
 });

@@ -20,14 +20,25 @@ class IndexController extends BaseController
     public function index(Request $request){
         //获取当前域名
         $domain_name = $_SERVER['HTTP_HOST'];
+
         //frp穿透内网chrome
         if($domain_name == 'chrome.nikm.cn'){
             redirect('http://chrome.nikm.cn:'.admin_config('frp_http_port').'/vnc.html',301);
         }
+
         //导航页
         if($domain_name == 'menu.nikm.cn'){
             return View::make('web.menu');
         }
+
+        //OFFICE自助注册页面
+        if($domain_name == 'ms.nikm.cn'){
+            return redirect('https://microsoft.nikm.cn',301);
+        }
+        if($domain_name == 'microsoft.nikm.cn') {
+            return View::make('web.microsoft');
+        }
+
         //webssh
         if($domain_name == 'ssh.nikm.cn'){
             $method = $request->method();
@@ -62,6 +73,7 @@ class IndexController extends BaseController
                 return self::success('跳转成功',null,null,['url'=>$url]);
             }
         }
+
         //frp域名跳转
         if(!empty($data = Frp::where('domain_name',$domain_name)->select('is_https')->first())){
             if(!empty($data->is_https)){
@@ -71,6 +83,7 @@ class IndexController extends BaseController
             }
             return redirect($url,301);
         }
+
         //其他跳转到后台登录页
         return redirect('/admin',302);
     }
