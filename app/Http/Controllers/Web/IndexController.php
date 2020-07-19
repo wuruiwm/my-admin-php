@@ -21,11 +21,6 @@ class IndexController extends BaseController
         //获取当前域名
         $domain_name = $_SERVER['HTTP_HOST'];
 
-        //frp穿透内网chrome
-        if($domain_name == 'chrome.nikm.cn'){
-            redirect('http://chrome.nikm.cn:'.admin_config('frp_http_port').'/vnc.html',301);
-        }
-
         //导航页
         if($domain_name == 'menu.nikm.cn'){
             return View::make('web.menu');
