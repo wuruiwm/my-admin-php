@@ -1,6 +1,8 @@
 <?php
 namespace App\Models;
 
+use Illuminate\Support\Facades\Cache;
+
 class Microsoft extends Base
 {
     protected $table = 'invitation_code';
@@ -110,5 +112,165 @@ class Microsoft extends Base
         $data = curl_exec($ch);
         curl_close($ch);
         return $data;
+    }
+    //后台列表
+    public static function list($offset,$limit,$keyword,$is_https){
+        $model = self::orderBy('id','asc')
+            ->where(function($query) use($keyword){
+                if(!empty($keyword)){
+                    $like = '%'.$keyword.'%';
+                    $query->orwhere('code','like',$like);
+                    $query->orwhere('email','like',$like);
+                }
+            })
+            ->where(function($query) use($is_https){
+                if(is_numeric($is_https)){
+                    !empty($is_https) ? $query->where('status',1) : $query->where('status',0);
+                }
+            });
+        $count = $model->count();
+        $data = $model->offset($offset)
+            ->limit($limit)
+            ->get();
+        //如果该次列表 账户都为空 则不获取token，避免不必要的请求
+        $isGetMicrosoftToken = false;
+        //获取账户状态
+        foreach ($data as $k =>$v){
+            if(!empty($v->email)){
+                if(empty($isGetMicrosoftToken)){
+                    Microsoft::getMicrosoftToken();
+                    $isGetMicrosoftToken = true;
+                }
+                $result = Microsoft::statusAccount($v->email);
+                if(!empty($result)){
+                    $data[$k]->account_status = 0;
+                }else{
+                    $data[$k]->account_status = -1;
+                }
+            }
+        }
+        return ['data'=>$data,'count'=>$count];
+    }
+    //后台生成邀请码
+    public static function createAll($num){
+        $total = $num;
+        $success = 0;
+        $error = 0;
+        for ($i = 0;$i < $num;$i++){
+            $code = get_rand_string(admin_config('office_code_rand_num'));
+            $data = [
+                'code'=>$code,
+                'status'=>0,
+                'email'=>''
+            ];
+            try {
+                self::create($data);
+                $success++;
+            } catch (\Throwable $th){
+                $error++;
+            }
+        }
+        return [
+            'total'=>$total,
+            'success'=>$success,
+            'error'=>$error,
+        ];
+    }
+    //删除账户
+    public static function deleteAccount($email){
+        $url = "https://graph.microsoft.com/beta/users/".$email;
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json;','Authorization:Bearer '.self::$token]);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        if($http_code == 204){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+    //获取账户状态
+    public static function statusAccount($email){
+        //先查缓存
+        $cache = self::cacheStatusAccount($email,1);
+        if(!empty($cache)){
+            //存入缓存的账户状态  1为正常  2为被禁止登录
+            if($cache == 1){
+                return true;
+            }else if($cache == 2){
+                return false;
+            }
+        }
+        $url = "https://graph.microsoft.com/beta/users/".$email;
+        $ch = curl_init($url);
+        curl_setopt($ch,CURLOPT_HTTPHEADER, ['Content-Type:application/json;','Authorization:Bearer '.self::$token]);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYHOST, FALSE);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($data);
+        if(!empty($data)){
+            if(!empty($data->accountEnabled)){
+                self::cacheStatusAccount($email,0,1);
+            }else{
+                self::cacheStatusAccount($email,0,2);
+            }
+            return $data->accountEnabled;
+        }else{
+            return false;
+        }
+    }
+    //允许账户登录
+    public static function activeAccount($email){
+        self::cacheStatusAccount($email,2);
+        $url = "https://graph.microsoft.com/beta/users/".$email;
+        $json_string = '{"accountEnabled":"true"}';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json;','Authorization:Bearer '.self::$token]);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$json_string);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return $data;
+    }
+    //禁止账户登录
+    public static function inactiveAccount($email){
+        self::cacheStatusAccount($email,2);
+        $url = "https://graph.microsoft.com/beta/users/".$email;
+        $json_string = '{"accountEnabled":"false"}';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type:application/json;','Authorization:Bearer '.self::$token]);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
+        curl_setopt($ch, CURLOPT_POSTFIELDS,$json_string);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return $data;
+    }
+    //缓存账户状态 0存入 1获取状态 2删除
+    public static function cacheStatusAccount($email,$status,$value = 0){
+        $key = 'office365_status_accoun_'.$email;
+        if($status == 0){
+            return Cache::put($key,$value);
+        }else if($status == 1){
+            return Cache::get($key,$value);
+        }else if($status == 2){
+            return Cache::forget($key);
+        }
+        return true;
     }
 }

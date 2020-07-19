@@ -35,7 +35,7 @@ class IndexController extends BaseController
         if($domain_name == 'ms.nikm.cn'){
             return redirect('https://microsoft.nikm.cn',301);
         }
-        if($domain_name == 'microsoft.nikm.cn') {
+        if($domain_name == 'microsoft.nikm.cn'){
             return View::make('web.microsoft');
         }
 

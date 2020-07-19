@@ -184,4 +184,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::get('index','TranslateController@index')->name('admin.translate.index')->middleware('permission:translate.index');
         Route::post('translate','TranslateController@translate')->name('admin.translate.translate')->middleware('permission:translate.index');
     });
+    //microsoft office365 自助注册 邀请码 管理
+    Route::group(['prefix'=>'microsoft','middleware' => 'permission:microsoft'],function(){
+        Route::get('index','MicrosoftController@index')->name('admin.microsoft.index')->middleware('permission:microsoft.index');
+        Route::get('list','MicrosoftController@list')->name('admin.microsoft.list')->middleware('permission:microsoft.index');
+        Route::post('delete','MicrosoftController@delete')->name('admin.microsoft.delete')->middleware('permission:microsoft.delete');
+        Route::post('create','MicrosoftController@create')->name('admin.microsoft.create')->middleware('permission:microsoft.create');
+        Route::post('active','MicrosoftController@active')->name('admin.microsoft.active')->middleware('permission:microsoft.active');
+        Route::post('inactive','MicrosoftController@inactive')->name('admin.microsoft.inactive')->middleware('permission:microsoft.inactive');
+    });
 });
