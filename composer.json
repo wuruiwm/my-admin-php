@@ -15,7 +15,8 @@
         "mews/captcha": "^3.0",
         "overtrue/laravel-wechat": "^5.0",
         "spatie/laravel-permission": "^3.0",
-        "symfony/http-foundation": "4.4.7"
+        "symfony/http-foundation": "4.4.7",
+        "symfony/http-kernel": "4.4.13"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
