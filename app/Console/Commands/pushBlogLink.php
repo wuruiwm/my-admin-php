@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 
 class pushBlogLink extends Command
@@ -51,7 +50,7 @@ class pushBlogLink extends Command
         //开始推送
         $api = 'http://data.zz.baidu.com/urls?site=https://www.nikm.cn&token=Wn8c18vT1naD8X2K';
         $curl = curl_init();
-        $options =  array(
+        $options = array(
             CURLOPT_URL => $api,
             CURLOPT_POST => true,
             CURLOPT_RETURNTRANSFER => true,
