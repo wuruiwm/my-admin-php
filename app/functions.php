@@ -74,7 +74,22 @@ function curl_post($url, $post){
     curl_setopt($curl, CURLOPT_TIMEOUT, 30);
     curl_setopt($curl, CURLOPT_HEADER, 0);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-    $res = curl_exec($curl);
+    $data = curl_exec($curl);
     curl_close($curl);
-    return $res;
+    return $data;
+}
+//curl get
+function curl_get($url,$header = []){
+    $curl = curl_init(); // 启动一个CURL会话
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_HEADER, 0);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+    if(!empty($header)){
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+    }
+    $data = curl_exec($curl);
+    curl_close($curl);
+    return $data;    //返回json对象
 }
