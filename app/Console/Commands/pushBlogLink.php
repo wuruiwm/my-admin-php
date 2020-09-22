@@ -50,13 +50,13 @@ class pushBlogLink extends Command
         //开始推送
         $api = 'http://data.zz.baidu.com/urls?site=https://www.nikm.cn&token=Wn8c18vT1naD8X2K';
         $curl = curl_init();
-        $options = array(
+        $options = [
             CURLOPT_URL => $api,
             CURLOPT_POST => true,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POSTFIELDS => implode("\n", $url_list),
             CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
-        );
+        ];
         curl_setopt_array($curl, $options);
         $result = curl_exec($curl);
         curl_close($curl);
