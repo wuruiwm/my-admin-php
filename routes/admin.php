@@ -193,12 +193,4 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
         Route::post('active','MicrosoftController@active')->name('admin.microsoft.active')->middleware('permission:microsoft.active');
         Route::post('inactive','MicrosoftController@inactive')->name('admin.microsoft.inactive')->middleware('permission:microsoft.inactive');
     });
-    //服务商对接表
-    Route::group(['prefix'=>'docking','middleware' => 'permission:docking'],function(){
-        Route::get('index','DockingController@index')->name('admin.docking.index')->middleware('permission:docking.index');
-        Route::get('list','DockingController@list')->name('admin.docking.list')->middleware('permission:docking.index');
-        Route::post('delete','DockingController@delete')->name('admin.docking.delete')->middleware('permission:docking.delete');
-        Route::post('edit','DockingController@edit')->name('admin.docking.edit')->middleware('permission:docking.edit');
-        Route::post('create','DockingController@create')->name('admin.docking.create')->middleware('permission:docking.create');
-    });
 });
