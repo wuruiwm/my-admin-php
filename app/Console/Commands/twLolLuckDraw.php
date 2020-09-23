@@ -21,7 +21,7 @@ class twLolLuckDraw extends Command
     protected $description = '台服lol幸运抽奖';
 
     /**
-     * The console command description.
+     * 台服lol抽奖url
      *
      * @var string
      */
