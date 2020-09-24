@@ -21,21 +21,27 @@ function admin_config($key){
 }
 //获取用户ip地址
 function get_client_ip(){
-    if (getenv('HTTP_CLIENT_IP')) {
-        $ip = getenv('HTTP_CLIENT_IP');
+    $ip = FALSE;
+    //客户端IP 或 NONE
+    if(!empty($_SERVER["HTTP_CLIENT_IP"])){
+        $ip = $_SERVER["HTTP_CLIENT_IP"];
     }
-    if (getenv('HTTP_X_REAL_IP')) {
-        $ip = getenv('HTTP_X_REAL_IP');
-    } elseif (getenv('HTTP_X_FORWARDED_FOR')) {
-        $ip = getenv('HTTP_X_FORWARDED_FOR');
-        $ips = explode(',', $ip);
-        $ip = $ips[0];
-    } elseif (getenv('REMOTE_ADDR')) {
-        $ip = getenv('REMOTE_ADDR');
-    } else {
-        $ip = '0.0.0.0';
+    //多重代理服务器下的客户端真实IP地址（可能伪造）,如果没有使用代理，此字段为空
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ips = explode (", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
+        if ($ip) {
+            array_unshift($ips, $ip);
+            $ip = FALSE;
+        }
+        for ($i = 0; $i < count($ips); $i++) {
+            if (!eregi ("^(10│172.16│192.168).", $ips[$i])) {
+                $ip = $ips[$i];
+                break;
+            }
+        }
     }
-    return $ip;
+    //客户端IP 或 (最后一个)代理服务器 IP
+    return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
 }
 //获取当前请求带协议头的域名  例如https://www.baidu.com
 function domain_name(){
@@ -92,4 +98,27 @@ function curl_get($url,$header = []){
     $data = curl_exec($curl);
     curl_close($curl);
     return $data;    //返回json对象
+}
+//发送邮件
+function send_email($title,$content){
+    $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+    try {
+        //服务器配置
+        $mail->CharSet = "UTF-8";
+        $mail->isSMTP();
+        $mail->Host = admin_config('email_server_host');//SMTP服务器域名
+        $mail->SMTPAuth = true;
+        $mail->Username = admin_config('email_username');//用户名
+        $mail->Password = admin_config('email_password');//密码
+        $mail->SMTPSecure = admin_config('email_encrypt');//可选参数tls ssl
+        $mail->Port = admin_config('email_port');//一般无加密25 ssl465 tls 587 具体看服务商端口
+        $mail->setFrom(admin_config('email_username'), '后台管理系统');//发件人
+        $mail->addAddress('wuruiwm@qq.com');//收件人
+        $mail->Subject = $title;
+        $mail->Body = $content;
+        $mail->send();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
 }
