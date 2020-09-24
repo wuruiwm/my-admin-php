@@ -50,12 +50,14 @@ class shengxianchuanqi extends Command
         $result = curl_get($this->sign_in_url,$header);
         $data = @json_decode($result,true);
         if(empty($data)){
+            send_email('生鲜传奇签到','请求错误');
             $this->error('请求错误');
             return;
         }
         if($data['code'] == 1001){
             $this->info('签到成功');
         }else{
+            send_email('生鲜传奇签到','签到失败 error:'.$data['message']);
             $this->error('签到失败 error:'.$data['message']);
         }
     }
