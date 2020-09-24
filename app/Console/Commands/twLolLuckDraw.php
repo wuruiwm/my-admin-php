@@ -75,6 +75,7 @@ class twLolLuckDraw extends Command
             'original_content'=>json_encode($data),
         ];
         LuckDrawLog::create($luck_draw_log);
+        send_email('台服lol幸运抽奖','抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
         $this->info('抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
     }
     /**

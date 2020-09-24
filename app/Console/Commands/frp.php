@@ -109,6 +109,7 @@ class frp extends Command
      * @param string $msg 输出提示
      */
     private function start($bool = true,$msg = '启动frp'){
+        send_email('frp守护',$msg);
         if($bool == true){
             $shell = $this->frp_start;
             exec($shell, $result, $status);

@@ -62,6 +62,7 @@ class hitokoto extends Command
             }
             $i++;
         }
+        send_email('一言爬虫','有效插入'.$success.'条');
         $this->info('有效插入'.$success.'条');
     }
 }

@@ -55,6 +55,7 @@ class shengxianchuanqi extends Command
             return;
         }
         if($data['code'] == 1001){
+            send_email('生鲜传奇签到','签到成功');
             $this->info('签到成功');
         }else{
             send_email('生鲜传奇签到','签到失败 error:'.$data['message']);

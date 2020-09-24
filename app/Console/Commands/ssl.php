@@ -54,6 +54,7 @@ class ssl extends Command
             exec($shell, $result, $status);
             $this->info("执行成功");
         } catch (\Throwable $th) {
+            send_email('ssl证书自动更新异常','执行失败');
             $this->error("执行失败");
         }
     }
