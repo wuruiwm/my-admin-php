@@ -25,7 +25,7 @@ class frp extends Command
      *
      * @var string
      */
-    protected $description = 'FRP相关操作';
+    protected $description = 'FRP';
 
     /**
      * Create a new command instance.
@@ -57,13 +57,7 @@ class frp extends Command
         $shell = "ps -aux|grep frp| grep -v grep";
         exec($shell, $result, $status);
 
-        //守护
-        if($command == 'guard'){
-            $this->guard();
-        //重启
-        }else if($command == 'restart'){
-            $this->restart();
-        }
+        $this->$command();
     }
     /**
      * frp守护

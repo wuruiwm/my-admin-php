@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Models\PtDownload;
 
 class pthome extends Command
 {
@@ -11,14 +12,14 @@ class pthome extends Command
      *
      * @var string
      */
-    protected $signature = 'pthome';
+    protected $signature = 'pthome {cli}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'pthome爬种子';
+    protected $description = 'pthome';
 
     /**
      * Create a new command instance.
@@ -37,13 +38,53 @@ class pthome extends Command
      */
     public function handle()
     {
-        $url = 'https://pthome.net/torrents.php';
-        $cookie = '__cfduid=d8ad58b735d8691091ae5b0c8d426eebd1600157895; UM_distinctid=17490d7cd41147-00576c4a65d659-333769-1fa400-17490d7cd4233b; c_secure_uid=MTI0MjE4; c_secure_pass=c217395a539744012d0b47933e5ce56f; c_secure_ssl=eWVhaA%3D%3D; c_secure_tracker_ssl=eWVhaA%3D%3D; c_secure_login=bm9wZQ%3D%3D; CNZZDATA1275677506=2056688231-1600665412-https%253A%252F%252Fmail.qq.com%252F%7C1600765047';
-        $header = [
-            'cookie:'.$cookie
-        ];
-        $result = curl_get($url,$header);
-        echo $result;
-        echo strpos($result,'<table class="torrents torrents-table"');
+        $command = $this->argument('cli');
+
+        if(!in_array($command,['rss'])){
+            $this->error("错误命令");
+            $this->info("正确命令列表");
+            $this->info("更新rss下载列表:php artisan pthome rss");
+            return;
+        }
+
+        $this->$command();
+    }
+    /**
+     * 更新rss下载列表
+     */
+    private function rss(){
+        $url = admin_config('pthome_rss_url');
+        $result = @json_decode(json_encode(simplexml_load_string(file_get_contents($url), 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        if(empty($result)){
+            $this->error('请求rss列表失败');
+            send_email('pthome','请求rss列表失败');
+            return;
+        }
+        //获取rss解析出来的下载地址
+        $data = [];
+        foreach ($result['channel']['item'] as $k => $v) {
+            if(!empty($v['enclosure']['@attributes']['url'])){
+                $data[] = [
+                    'download_url'=>$v['enclosure']['@attributes']['url'],
+                    'hash'=>md5($v['enclosure']['@attributes']['url']),
+                    'status'=>0,
+                ];
+            }
+        }
+        //开始插入，并且计成功插入数量
+        $success = 0;
+        foreach ($data as $k =>$v){
+            try {
+                PtDownload::create($v);
+                $success++;
+            } catch (\Throwable $th) {
+            }
+        }
+        if($success == 0){
+            $this->info('无新增的种子');
+            return;
+        }
+        $this->info('成功新增'.$success.'个种子');
+        send_email('pthome','成功新增'.$success.'个种子');
     }
 }

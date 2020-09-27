@@ -74,9 +74,14 @@ class twLolLuckDraw extends Command
             'content'=>$data['result']['prize']['item']['name'],
             'original_content'=>json_encode($data),
         ];
-        LuckDrawLog::create($luck_draw_log);
-        send_email('台服lol幸运抽奖','抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
-        $this->info('抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
+        try {
+            LuckDrawLog::create($luck_draw_log);
+            send_email('台服lol幸运抽奖','抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
+            $this->info('抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
+        } catch (\Throwable $th) {
+            send_email('台服lol幸运抽奖','抽奖成功，但是插入数据失败');
+            $this->error("抽奖成功，但是插入数据失败");
+        }
     }
     /**
      * 请求抽奖接口返回结果
