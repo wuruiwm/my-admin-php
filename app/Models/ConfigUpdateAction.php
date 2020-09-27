@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 
-use App\Console\Commands\twLolLuckDraw;
 use Illuminate\Support\Facades\Artisan;
 
 class ConfigUpdateAction
