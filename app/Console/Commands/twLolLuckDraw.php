@@ -87,9 +87,14 @@ class twLolLuckDraw extends Command
      * 请求抽奖接口返回结果
      */
     public function request(){
+        if(!empty($GLOBALS['tw_lol_sk'])){
+            $sk = $GLOBALS['tw_lol_sk'];
+        }else{
+            $sk = admin_config('tw_lol_luck_draw_sk');
+        }
         $post_data = [
             'game'=>'lol',
-            'sk'=>admin_config('tw_lol_luck_draw_sk'),
+            'sk'=>$sk,
             'region'=>'TW',
             'version'=>1599462082,
             'tid'=>time(),

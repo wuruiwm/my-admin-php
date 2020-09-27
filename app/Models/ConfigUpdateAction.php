@@ -1,8 +1,23 @@
 <?php
 namespace App\Models;
 
+use App\Console\Commands\twLolLuckDraw;
+use Illuminate\Support\Facades\Artisan;
+
 class ConfigUpdateAction
 {
+    /**
+     * 利用key加密解密 password表的数据
+     * @param $data array 配置项更新数据
+     */
+    public static function tw_lol_luck_draw_sk($data){
+        $GLOBALS['tw_lol_sk'] = $data['tw_lol_luck_draw_sk'];
+        Artisan::call('twLolLuckDraw');
+    }
+    /**
+     * 利用key加密解密 password表的数据
+     * @param $data array 配置项更新数据
+     */
     public static function is_password_encrypt($data){
          $new_is_password_encrypt = $data['is_password_encrypt'];
          $old_is_password_encrypt = admin_config("is_password_encrypt");
