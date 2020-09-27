@@ -27,4 +27,6 @@ Route::group(['namespace'=>'Api'],function (){
     Route::get('/ssl','SslController@detail');
     //一言接口
     Route::get('/yiyan','HitokotoController@detail');
+    //pthome待下载种子列表
+    Route::get('/pthome/list','PthomeController@list');
 });
