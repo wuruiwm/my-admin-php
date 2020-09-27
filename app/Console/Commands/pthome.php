@@ -53,28 +53,19 @@ class pthome extends Command
      * 更新rss下载列表
      */
     private function rss(){
-        $url = admin_config('pthome_rss_url');
-        $result = @json_decode(json_encode(simplexml_load_string(file_get_contents($url), 'SimpleXMLElement', LIBXML_NOCDATA)), true);
-        if(empty($result)){
-            $this->error('请求rss列表失败');
-            send_email('pthome','请求rss列表失败');
+        $data = PtDownload::rssRequest();
+        if(empty($data)){
+            $this->info('rss列表无数据');
             return;
-        }
-        //获取rss解析出来的下载地址
-        $data = [];
-        foreach ($result['channel']['item'] as $k => $v) {
-            if(!empty($v['enclosure']['@attributes']['url'])){
-                $data[] = [
-                    'download_url'=>$v['enclosure']['@attributes']['url'],
-                    'hash'=>md5($v['enclosure']['@attributes']['url']),
-                    'status'=>0,
-                ];
-            }
         }
         //开始插入，并且计成功插入数量
         $success = 0;
         foreach ($data as $k =>$v){
             try {
+                $pt_download = PtDownload::where('id',$v['id'])->select(['id'])->first();
+                if(!empty($pt_download)){
+                    continue;
+                }
                 PtDownload::create($v);
                 $success++;
             } catch (\Throwable $th) {
