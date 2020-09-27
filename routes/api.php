@@ -29,4 +29,6 @@ Route::group(['namespace'=>'Api'],function (){
     Route::get('/yiyan','HitokotoController@detail');
     //pthome待下载种子列表
     Route::get('/pthome/list','PthomeController@list');
+    //pthome待下载种子列表
+    Route::post('/pthome/downloadUpdate','PthomeController@downloadUpdate');
 });

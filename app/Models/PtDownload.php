@@ -9,7 +9,7 @@ class PtDownload extends Base
      */
     public static function getDownloadList(){
         return self::where('status',0)
-            ->select(['id','download_url','hash'])
+            ->select(['download_url','hash'])
             ->get();
     }
 }
