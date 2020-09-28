@@ -12,7 +12,7 @@ class PtDownload extends Base
         $list = self::where('status',0)
             ->select(['pthome_id'])
             ->get();
-        $result = self::rssRequest();
+        $result = self::rssInsert();
         foreach ($list as $k =>$v){
             foreach ($result as $k2 =>$v2){
                 if($v['pthome_id'] == $v2['id']){
@@ -52,6 +52,37 @@ class PtDownload extends Base
                 ];
             }
         }
+        return $data;
+    }
+    /**
+     * rss列表更新的种子 插入数据库
+     */
+    public static function rssInsert(){
+        $data = self::rssRequest();
+        if(empty($data)){
+            return $data;
+        }
+        //开始插入，并且计成功插入数量
+        $success = 0;
+        foreach ($data as $k =>$v){
+            try {
+                $pt_download = PtDownload::where('pthome_id',$v['id'])->select(['id'])->first();
+                if(!empty($pt_download)){
+                    continue;
+                }
+                $v['status'] = 0;
+                $v['pthome_id'] = $v['id'];
+                unset($v['download_url']);
+                unset($v['id']);
+                PtDownload::create($v);
+                $success++;
+            } catch (\Throwable $th) {
+            }
+        }
+        if($success == 0){
+            return $data;
+        }
+        send_email('pthome','成功新增'.$success.'个种子');
         return $data;
     }
 }
