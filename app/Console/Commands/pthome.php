@@ -62,10 +62,14 @@ class pthome extends Command
         $success = 0;
         foreach ($data as $k =>$v){
             try {
-                $pt_download = PtDownload::where('id',$v['id'])->select(['id'])->first();
+                $pt_download = PtDownload::where('pthome_id',$v['id'])->select(['id'])->first();
                 if(!empty($pt_download)){
                     continue;
                 }
+                $v['status'] = 0;
+                $v['pthome_id'] = $v['id'];
+                unset($v['download_url']);
+                unset($v['id']);
                 PtDownload::create($v);
                 $success++;
             } catch (\Throwable $th) {

@@ -8,9 +8,19 @@ class PtDownload extends Base
      * 获取待下载种子
      */
     public static function getDownloadList(){
-        return self::where('status',0)
-            ->select(['download_url','hash'])
+        $data = [];
+        $list = self::where('status',0)
+            ->select(['pthome_id'])
             ->get();
+        $result = self::rssRequest();
+        foreach ($list as $k =>$v){
+            foreach ($result as $k2 =>$v2){
+                if($v['pthome_id'] == $v2['id']){
+                    $data[] = $v2['download_url'];
+                }
+            }
+        }
+        return $data;
     }
     /**
      * 请求rss地址 并处理数据后返回

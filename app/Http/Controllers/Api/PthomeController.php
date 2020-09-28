@@ -18,12 +18,12 @@ class PthomeController extends BaseController
      * pthome下载完，更新状态
      */
     public function downloadUpdate(Request $request){
-        $hash = $request->input('hash');
+        $pthome_id = $request->input('pthome_id');
         if(empty($hash)){
             return self::error('hash值不能为空');
         }
         try {
-            PtDownload::where('hash',$hash)
+            PtDownload::where('pthome_id',$pthome_id)
                 ->update(['status'=>1]);
             return self::success('更新状态成功');
         } catch (\Throwable $th) {
