@@ -20,7 +20,7 @@ class PthomeController extends BaseController
     public function downloadUpdate(Request $request){
         $pthome_id = $request->input('pthome_id');
         if(empty($hash)){
-            return self::error('hash值不能为空');
+            return self::error('pthome_id值不能为空');
         }
         try {
             PtDownload::where('pthome_id',$pthome_id)
