@@ -16,7 +16,10 @@ class PtDownload extends Base
         foreach ($list as $k =>$v){
             foreach ($result as $k2 =>$v2){
                 if($v['pthome_id'] == $v2['id']){
-                    $data[] = $v2['download_url'];
+                    $data[] = [
+                        'pthome_id'=>$v['pthome_id'],
+                        'download_url'=>$v2['download_url'],
+                    ];
                 }
             }
         }
