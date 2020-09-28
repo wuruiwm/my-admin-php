@@ -19,7 +19,7 @@ class PthomeController extends BaseController
      */
     public function downloadUpdate(Request $request){
         $pthome_id = $request->input('pthome_id');
-        if(empty($hash)){
+        if(empty($pthome_id)){
             return self::error('pthome_id值不能为空');
         }
         try {
