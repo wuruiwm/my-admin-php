@@ -8,11 +8,11 @@ class PtDownload extends Base
      * 获取待下载种子
      */
     public static function getDownloadList(){
+        $result = self::rssInsert();
         $data = [];
         $list = self::where('status',0)
             ->select(['pthome_id'])
             ->get();
-        $result = self::rssInsert();
         foreach ($list as $k =>$v){
             foreach ($result as $k2 =>$v2){
                 if($v['pthome_id'] == $v2['id']){
