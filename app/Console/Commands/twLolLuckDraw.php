@@ -29,6 +29,20 @@ class twLolLuckDraw extends Command
     protected $lucky_draw_url = 'https://luckydraw.gamehub.garena.tw/service/luckydraw';
 
     /**
+     * 幸运抽奖的版本号
+     *
+     * @var string
+     */
+    protected $version;
+
+    /**
+     * 用户鉴权sk
+     *
+     * @var string
+     */
+    protected $sk;
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -36,6 +50,8 @@ class twLolLuckDraw extends Command
     public function __construct()
     {
         parent::__construct();
+        $this->initSk();
+        $this->initVersion();
     }
 
     /**
@@ -87,18 +103,44 @@ class twLolLuckDraw extends Command
      * 请求抽奖接口返回结果
      */
     public function request(){
+        $post_data = [
+            'game'=>'lol',
+            'sk'=>$this->sk,
+            'region'=>'TW',
+            'version'=>$this->version,
+            'tid'=>time(),
+        ];
+        return curl_post($this->lucky_draw_url,$post_data);
+    }
+    /**
+     * 初始化幸运抽奖的版本号
+     */
+    public function initVersion(){
+        $url = 'https://luckydraw.gamehub.garena.tw/service/luckydraw/?sk='.$this->sk.'&region=TW&tid='.time();
+        $result = @json_decode(@file_get_contents($url),true);
+        if(empty($result)){
+            exit('请求获取抽奖版本号接口失败');
+        }
+        $version = false;
+        foreach($result['result']['settings'] as $k =>$v){
+            if($v['code'] == 'lol'){
+                $version = $v['version'];
+            }
+        }
+        if(empty($version)){
+            exit('获取抽奖版本号失败');
+        }
+        $this->version = $version;
+    }
+    public function initSk(){
         if(!empty($GLOBALS['tw_lol_sk'])){
             $sk = $GLOBALS['tw_lol_sk'];
         }else{
             $sk = admin_config('tw_lol_luck_draw_sk');
         }
-        $post_data = [
-            'game'=>'lol',
-            'sk'=>$sk,
-            'region'=>'TW',
-            'version'=>1599462082,
-            'tid'=>time(),
-        ];
-        return curl_post($this->lucky_draw_url,$post_data);
+        if(empty($sk)){
+            exit('获取用户鉴权sk失败');
+        }
+        $this->sk = $sk;
     }
 }
