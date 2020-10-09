@@ -50,8 +50,6 @@ class twLolLuckDraw extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->initSk();
-        $this->initVersion();
     }
 
     /**
@@ -61,6 +59,8 @@ class twLolLuckDraw extends Command
      */
     public function handle()
     {
+        $this->initSk();
+        $this->initVersion();
         $result = $this->request();
         $data = @json_decode($result,true);
         if(empty($data)){
