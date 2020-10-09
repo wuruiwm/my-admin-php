@@ -121,6 +121,15 @@ class twLolLuckDraw extends Command
         if(empty($result)){
             exit('请求获取抽奖版本号接口失败');
         }
+        if(!empty($result['error'])){
+            if($result['error'] == 11){
+                send_email('台服lol幸运抽奖','用户鉴权失败 请更新sk');
+                exit('用户鉴权失败 请更新sk');
+            }else{
+                send_email('台服lol幸运抽奖','其他错误:'.$result['datail']);
+                exit('其他错误:'.$result['datail']);
+            }
+        }
         $version = false;
         foreach($result['result']['settings'] as $k =>$v){
             if($v['code'] == 'lol'){
