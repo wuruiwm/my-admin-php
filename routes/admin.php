@@ -169,6 +169,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth
     //SSL证书
     Route::group(['prefix'=>'ssl','middleware' => 'permission:ssl'],function(){
         Route::get('index','SslController@index')->name('admin.ssl.index')->middleware('permission:ssl.index');
+        Route::get('download','SslController@download')->name('admin.ssl.download')->middleware('permission:ssl.download');
     });
     //FRP域名跳转
     Route::group(['prefix'=>'frp','middleware' => 'permission:frp'],function(){

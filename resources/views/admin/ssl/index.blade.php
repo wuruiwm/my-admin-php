@@ -9,7 +9,12 @@
             <div class="layui-inline" style="margin-left: 1rem;">
                 <button type="button" class="layui-btn copy" id="pem" data-clipboard-text="{{$pem}}" onclick="layer.msg('复制成功')"><i class="fa fa-files-o" aria-hidden="true"></i> 复制pem</button>
             </div>
-
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <button type="button" class="layui-btn layui-btn-primary" id="key_download"><i class="fa fa-download" aria-hidden="true"></i> 下载key</button>
+            </div>
+            <div class="layui-inline" style="margin-left: 1rem;">
+                <button type="button" class="layui-btn layui-btn-primary" id="pem_download"><i class="fa fa-download" aria-hidden="true"></i> 下载pem</button>
+            </div>
             <div class="layui-inline" style="margin-left: 1rem;font-size: 1rem;">
                 @if (!empty($end_time))
                     <span style="color: #3d763e;">证书到期时间:&nbsp;{{$end_time}}</span>
@@ -30,7 +35,6 @@
 @section('script')
     <script>
         layui.use(['layer','code'], function(){
-            var layer = layui.layer;
             layui.code({
                 elem: '.key', //默认值为.layui-code
                 title:'key',
@@ -44,6 +48,12 @@
         });
         $(function(){
             new Clipboard('.copy');
+        });
+        $('#key_download').click(function(){
+            window.location.href = "{{ route('admin.ssl.download') }}?type=key"
+        });
+        $('#pem_download').click(function(){
+            window.location.href = "{{ route('admin.ssl.download') }}?type=pem"
         });
     </script>
 @endsection
