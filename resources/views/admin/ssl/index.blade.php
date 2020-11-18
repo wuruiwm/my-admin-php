@@ -10,10 +10,10 @@
                 <button type="button" class="layui-btn copy" id="pem" data-clipboard-text="{{$pem}}" onclick="layer.msg('复制成功')"><i class="fa fa-files-o" aria-hidden="true"></i> 复制pem</button>
             </div>
             <div class="layui-inline" style="margin-left: 1rem;">
-                <button type="button" class="layui-btn layui-btn-primary" id="key_download"><i class="fa fa-download" aria-hidden="true"></i> 下载key</button>
+                <button type="button" class="layui-btn layui-btn-primary download" data-type="key"><i class="fa fa-download" aria-hidden="true"></i> 下载key</button>
             </div>
             <div class="layui-inline" style="margin-left: 1rem;">
-                <button type="button" class="layui-btn layui-btn-primary" id="pem_download"><i class="fa fa-download" aria-hidden="true"></i> 下载pem</button>
+                <button type="button" class="layui-btn layui-btn-primary download" data-type="pem"><i class="fa fa-download" aria-hidden="true"></i> 下载pem</button>
             </div>
             <div class="layui-inline" style="margin-left: 1rem;font-size: 1rem;">
                 @if (!empty($end_time))
@@ -49,11 +49,8 @@
         $(function(){
             new Clipboard('.copy');
         });
-        $('#key_download').click(function(){
-            window.location.href = "{{ route('admin.ssl.download') }}?type=key"
-        });
-        $('#pem_download').click(function(){
-            window.location.href = "{{ route('admin.ssl.download') }}?type=pem"
-        });
+        $('.download').click(function(){
+            window.location.href = "{{ route('admin.ssl.download') }}?type="+$(this).data('type');
+        })
     </script>
 @endsection
