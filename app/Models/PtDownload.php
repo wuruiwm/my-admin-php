@@ -1,9 +1,12 @@
 <?php
 namespace App\Models;
 
+use Illuminate\Support\Facades\Cache;
+
 class PtDownload extends Base
 {
     protected $table = 'pt_download';
+    const send_mail_day_num = 3;
     /**
      * 获取待下载种子
      */
@@ -32,7 +35,7 @@ class PtDownload extends Base
         $url = admin_config('pthome_rss_url');
         $result = @json_decode(json_encode(simplexml_load_string(file_get_contents($url), 'SimpleXMLElement', LIBXML_NOCDATA)), true);
         if(empty($result)){
-            send_email('pthome','请求rss列表失败');
+            self::errorSendEmail('pthome','请求rss列表失败');
             return false;
         }
         $data = [];
@@ -84,5 +87,19 @@ class PtDownload extends Base
         }
         send_email('pthome','成功新增'.$success.'个种子');
         return $data;
+    }
+    /**
+     * 一天内失败达到N次时 发送邮件提醒
+     */
+    public static function errorSendEmail($title,$content){
+        $cache_key = 'pthome_error_num';
+        $num = Cache::get($cache_key);
+        if(empty($num)){
+            Cache::put($cache_key,1,get_day_surplus_second());
+        }else if($num >= self::send_mail_day_num && is_send_notice()){
+            send_email($title,$content);
+        }else{
+            Cache::increment($cache_key);
+        }
     }
 }

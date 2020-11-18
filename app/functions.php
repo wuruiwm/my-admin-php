@@ -122,3 +122,15 @@ function send_email($title,$content){
         return false;
     }
 }
+//获取距离当天晚上23:59:59的秒数
+function get_day_surplus_second(){
+    return strtotime('23:59:59') - time();
+}
+//获取是否可以发送通知
+function is_send_notice(){
+    $h = intval(date('H'));
+    if($h >= 8 && $h <= 22 && !in_array($h,[12,13])){
+        return true;
+    }
+    return false;
+}
