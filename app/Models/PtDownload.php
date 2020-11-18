@@ -92,14 +92,16 @@ class PtDownload extends Base
      * 一天内失败达到N次时 发送邮件提醒
      */
     public static function errorSendEmail($title,$content){
-        $cache_key = 'pthome_error_num';
-        $num = Cache::get($cache_key);
+        $num_cache_key = 'pthome_error_day_num';
+        $send_time_cache_key = 'pthome_error_send_time';
+        $num = Cache::get($num_cache_key);
         if(empty($num)){
-            Cache::put($cache_key,1,get_day_surplus_second());
-        }else if($num >= self::send_mail_day_num && is_send_notice()){
+            Cache::put($num_cache_key,1,get_day_surplus_second());
+        }else if($num >= self::send_mail_day_num && is_send_notice() && empty(Cache::get($send_time_cache_key))){
             send_email($title,$content);
+            Cache::put($send_time_cache_key,1,60*60*6);
         }else{
-            Cache::increment($cache_key);
+            Cache::increment($num_cache_key);
         }
     }
 }
