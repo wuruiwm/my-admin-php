@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\LuckDrawLog;
+use Illuminate\Support\Facades\Cache;
 
 class twLolLuckDraw extends Command
 {
@@ -27,6 +28,13 @@ class twLolLuckDraw extends Command
      * @var string
      */
     protected $lucky_draw_url = 'https://luckydraw.gamehub.garena.tw/service/luckydraw';
+
+    /**
+     * 当天请求错误几次后发送通知
+     *
+     * @var string
+     */
+    protected $tw_lol_luck_draw_error_day_num = 3;
 
     /**
      * 幸运抽奖的版本号
@@ -64,7 +72,7 @@ class twLolLuckDraw extends Command
         $result = $this->request();
         $data = @json_decode($result,true);
         if(empty($data)){
-            send_email('台服lol幸运抽奖','请求错误');
+            $this->errorSendEmail('台服lol幸运抽奖','请求错误');
             $this->error('请求错误');
             return;
         }
@@ -75,11 +83,11 @@ class twLolLuckDraw extends Command
                 $this->info('抽奖CD中...');
             //用户鉴权失败 请更新sk
             }else if($data['error'] == 11){
-                send_email('台服lol幸运抽奖','用户鉴权失败 请更新sk');
+                $this->errorSendEmail('台服lol幸运抽奖','用户鉴权失败 请更新sk');
                 $this->error('用户鉴权失败 请更新sk');
             //其他错误
             }else{
-                send_email('台服lol幸运抽奖','其他错误:'.$data['detail']);
+                $this->errorSendEmail('台服lol幸运抽奖','其他错误:'.$data['detail']);
                 $this->error('其他错误:'.$data['detail']);
             }
             return;
@@ -95,7 +103,7 @@ class twLolLuckDraw extends Command
             send_email('台服lol幸运抽奖','抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
             $this->info('抽奖成功 奖品:'.$data['result']['prize']['item']['name']);
         } catch (\Throwable $th) {
-            send_email('台服lol幸运抽奖','抽奖成功，但是插入数据失败');
+            $this->errorSendEmail('台服lol幸运抽奖','抽奖成功，但是插入数据失败');
             $this->error("抽奖成功，但是插入数据失败");
         }
     }
@@ -123,10 +131,10 @@ class twLolLuckDraw extends Command
         }
         if(!empty($result['error'])){
             if($result['error'] == 11){
-                send_email('台服lol幸运抽奖','用户鉴权失败 请更新sk');
+                $this->errorSendEmail('台服lol幸运抽奖','用户鉴权失败 请更新sk');
                 exit('用户鉴权失败 请更新sk');
             }else{
-                send_email('台服lol幸运抽奖','其他错误:'.$result['datail']);
+                $this->errorSendEmail('台服lol幸运抽奖','其他错误:'.$result['datail']);
                 exit('其他错误:'.$result['datail']);
             }
         }
@@ -151,5 +159,21 @@ class twLolLuckDraw extends Command
             exit('获取用户鉴权sk失败');
         }
         $this->sk = $sk;
+    }
+    /**
+     * 一天内失败达到N次时 发送邮件提醒
+     */
+    public function errorSendEmail($title,$content){
+        $num_cache_key = 'tw_lol_luck_draw_error_day_num';
+        $send_time_cache_key = 'tw_lol_luck_draw_error_send_time';
+        $num = Cache::get($num_cache_key);
+        if(empty($num)){
+            Cache::put($num_cache_key,1,get_day_surplus_second());
+        }else if($num >= $this->tw_lol_luck_draw_error_day_num && is_send_notice() && empty(Cache::get($send_time_cache_key))){
+            send_email($title,$content);
+            Cache::put($send_time_cache_key,1,60*60*6);
+        }else{
+            Cache::increment($num_cache_key);
+        }
     }
 }

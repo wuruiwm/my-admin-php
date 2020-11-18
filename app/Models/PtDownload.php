@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Cache;
 class PtDownload extends Base
 {
     protected $table = 'pt_download';
-    const send_mail_day_num = 3;
+    const send_mail_day_num = 3;//当天请求错误几次后发送通知
     /**
      * 获取待下载种子
      */
