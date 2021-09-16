@@ -1,4 +1,4 @@
-stages: #q
+stages:
   - update-code
   - composer-install
 
