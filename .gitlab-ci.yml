@@ -1,4 +1,4 @@
-stages: # 分段
+stages:
   - update-code
   - composer-install
 
