@@ -59,12 +59,7 @@ class IndexController extends BaseController
                     return self::error("请填写密码");
                 }
                 $host = Ssh::translateDomainIP($host);
-                //如果是192.168.2开头，则跳转frp的webssh连回家  否则跳转服务器运行的webssh
-                if(strpos($host,'192.168.2') !== false){
-                    $url = 'http://'.urlencode($user).':'.urlencode($password).'@'.$domain_name.':'.admin_config('frp_http_port').'/ssh/host/'.$host.'?port='.$port;
-                }else{
-                    $url = admin_config('ssh_connect_url').'/?hostname='.$host.'&username='.urlencode($user).'&password='.base64_encode($password).'&port='.$port;
-                }
+                $url = 'https://'.urlencode($user).':'.urlencode($password).'@'.admin_config('ssh_connect_url').'/ssh/host/'.$host.'?port='.$port;
                 return self::success('跳转成功',null,null,['url'=>$url]);
             }
         }
