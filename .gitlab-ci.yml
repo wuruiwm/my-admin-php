@@ -1,0 +1,17 @@
+stages: # 分段
+  - update-code
+  - composer-install
+
+update-code-develop:
+  stage: update-code
+  only:
+    - master
+  script:
+    - sshpass -p ${WEB_PASSWORD} ssh -p ${WEB_PORT} -o StrictHostKeyChecking=no ${WEB_USERNAME}@${WEB_HOST} "cd ${WEB_PROJECT_PATH} && git checkout master && git pull origin master"
+
+composer-install-develop:
+  stage: composer-install
+  only:
+    - master
+  script:
+    - sshpass -p ${WEB_PASSWORD} ssh -p ${WEB_PORT} -o StrictHostKeyChecking=no ${WEB_USERNAME}@${WEB_HOST} "cd ${WEB_PROJECT_PATH} && composer install"
