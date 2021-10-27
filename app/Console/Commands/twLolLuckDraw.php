@@ -125,9 +125,9 @@ class twLolLuckDraw extends Command
      */
     public function initVersion(){
         $url = 'https://luckydraw.gamehub.garena.tw/service/luckydraw/?sk='.$this->sk.'&region=TW&tid='.time();
-        var_dump($this->curl_get_https($url),'https://luckydraw.gamehub.garena.tw/service/luckydraw/?sk='.$this->sk.'&region=TW&tid='.time());exit();
-        $result = @json_decode(@file_get_contents($url),true);
+        $result = @json_decode($this->curl_get_https($url),true);
         if(empty($result)){
+            $this->errorSendEmail('台服lol幸运抽奖','请求获取抽奖版本号接口失败');
             exit('请求获取抽奖版本号接口失败');
         }
         if(!empty($result['error'])){
@@ -146,6 +146,7 @@ class twLolLuckDraw extends Command
             }
         }
         if(empty($version)){
+            $this->errorSendEmail('台服lol幸运抽奖','获取抽奖版本号失败');
             exit('获取抽奖版本号失败');
         }
         $this->version = $version;
@@ -157,6 +158,7 @@ class twLolLuckDraw extends Command
             $sk = admin_config('tw_lol_luck_draw_sk');
         }
         if(empty($sk)){
+            $this->errorSendEmail('台服lol幸运抽奖','获取用户鉴权sk失败');
             exit('获取用户鉴权sk失败');
         }
         $this->sk = $sk;
