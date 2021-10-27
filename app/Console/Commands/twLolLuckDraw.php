@@ -183,7 +183,7 @@ class twLolLuckDraw extends Command
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);  // 从证书中检查SSL加密算法是否存在
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);  // 从证书中检查SSL加密算法是否存在
         $tmpInfo = curl_exec($curl);     //返回api的json对象
         //关闭URL请求
         curl_close($curl);
