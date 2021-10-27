@@ -125,7 +125,7 @@ class twLolLuckDraw extends Command
      */
     public function initVersion(){
         $url = 'https://luckydraw.gamehub.garena.tw/service/luckydraw/?sk='.$this->sk.'&region=TW&tid='.time();
-        var_dump(curl_get_https($url),'https://luckydraw.gamehub.garena.tw/service/luckydraw/?sk='.$this->sk.'&region=TW&tid='.time());exit();
+        var_dump($this->curl_get_https($url),'https://luckydraw.gamehub.garena.tw/service/luckydraw/?sk='.$this->sk.'&region=TW&tid='.time());exit();
         $result = @json_decode(@file_get_contents($url),true);
         if(empty($result)){
             exit('请求获取抽奖版本号接口失败');
