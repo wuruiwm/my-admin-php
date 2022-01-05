@@ -1,11 +1,3 @@
-<!--
- * @Author: 傍晚升起的太阳
- * @QQ: 1250201168
- * @Email: wuruiwm@qq.com
- * @Date: 2019-10-19 11:02:25
- * @LastEditors: 傍晚升起的太阳
- * @LastEditTime: 2019-10-19 11:02:25
- -->
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -17,6 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdn.nikm.cn/index/css/main.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.nikm.cn/css/font-awesome/css/font-awesome.min.css">
+    <style>
+        #header nav ul li{
+            width: 8rem;
+        }
+        .linoborder{
+            border-left:solid 0px #ffffff !important;
+        }
+        .uinoborder{
+            border-top:solid 0px #ffffff !important;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -32,17 +35,29 @@
         </div>
         <nav>
             <ul>
-                <li><a href="https://www.nikm.cn" target="_blank">吾梦一梦</a></li>
-                <li><a href="https://ms.nikm.cn" target="_blank">OFFICE自助</a></li>
+                <li><a href="https://www.nikm.cn" target="_blank">吾梦小站</a></li>
+                <li><a href="https://pve.nikm.cn" target="_blank">pve</a></li>
+                <li><a href="https://nas.nikm.cn" target="_blank">群晖</a></li>
+                <li><a href="https://ikuai.nikm.cn" target="_blank">Ikuai</a></li>
+                <li class="linoborder"><a href="https://op.nikm.cn" target="_blank">openwrt</a></li>
+                <li><a href="https://dl.nikm.cn" target="_blank">tr下载</a></li>
+                <li><a href="https://mysql.nikm.cn" target="_blank">mysql</a></li>
+                <li><a href="https://video.nikm.cn" target="_blank">jellyfin</a></li>
+            </ul>
+            <ul class="uinoborder">
+                <li><a href="https://git.nikm.cn" target="_blank">gitlab</a></li>
                 <li><a href="https://shop.nikm.cn" target="_blank">吾梦小店</a></li>
-                <li><a href="https://ssh.nikm.cn" target="_blank">吾梦ssh</a></li>
-                <li><a href="https://file.nikm.cn" target="_blank">吾梦file</a></li>
-                <li><a href="https://nas.nikm.cn" target="_blank">自用群辉</a></li>
+                <li><a href="https://doc.nikm.cn" target="_blank">showdoc</a></li>
+                <li><a href="https://cdn.nikm.cn" target="_blank">cdn</a></li>
+                <li class="linoborder"><a href="https://docker.nikm.cn" target="_blank">docker</a></li>
+                <li><a href="https://nt.nikm.cn" target="_blank">堡垒机</a></li>
+                <li><a href="https://mq.nikm.cn" target="_blank">mq</a></li>
+                <li><a href="https://ql.nikm.cn" target="_blank">青龙面板</a></li>
             </ul>
         </nav>
     </header>
     <footer id="footer">
-        <p class="copyright">&copy;{{ date('Y') }} 吾梦导航 <a href="http://www.beian.miit.gov.cn" target="_blank">皖ICP备18005713</a>号</p>
+        <p class="copyright">&copy;{{ date('Y') }} 吾梦导航 皖ICP备18005713</a>号</p>
     </footer>
 </div>
 <div id="bg"></div>
@@ -53,5 +68,5 @@
 <script src="https://cdn.nikm.cn/index/js/main.js"></script>
 </html>
 <meta itemprop="name" content="吾梦导航"/>
-<meta itemprop="image" content="https://cdn.nikm.cn/blog/img/touxiang.jpeg" />
+<meta itemprop="image" content="https://cdn.nikm.cn/index/img/favicon.ico" />
 <meta name="description" itemprop="description" content="记录生活，不忘初衷" />
