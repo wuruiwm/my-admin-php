@@ -4,7 +4,7 @@
     <title>吾梦导航</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="shortcut icon" href="https://cdn.nikm.cn/blog/img/touxiang.jpeg"/>
+    <link rel="shortcut icon" href="https://cdn.nikm.cn/index/img/favicon.ico"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdn.nikm.cn/index/css/main.css" type="text/css" />
