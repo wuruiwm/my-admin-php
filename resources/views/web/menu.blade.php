@@ -10,15 +10,8 @@
     <link rel="stylesheet" href="https://cdn.nikm.cn/index/css/main.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.nikm.cn/css/font-awesome/css/font-awesome.min.css">
     <style>
-        @media screen and (max-width: 480px){
-            #header nav ul li{
-                width: 10rem;
-            }
-        }
-        @media screen and (mix-width: 481px){
-            #header nav ul li{
-                width: 8rem;
-            }
+        #header nav ul li{
+            width: 10rem;
         }
         .linoborder{
             border-left:solid 0px #ffffff !important;
