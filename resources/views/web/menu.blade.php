@@ -15,7 +15,7 @@
                 width: 10rem;
             }
         }
-        @media screen and (mix-width: 480px){
+        @media screen and (mix-width: 481px){
             #header nav ul li{
                 width: 8rem;
             }
