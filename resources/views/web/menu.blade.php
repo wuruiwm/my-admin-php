@@ -40,7 +40,7 @@
                 <li><a href="https://nas.nikm.cn" target="_blank">群晖</a></li>
                 <li><a href="https://ikuai.nikm.cn" target="_blank">Ikuai</a></li>
                 <li class="linoborder"><a href="https://op.nikm.cn" target="_blank">openwrt</a></li>
-                <li><a href="https://dl.nikm.cn" target="_blank">tr下载</a></li>
+                <li><a href="https://dl.nikm.cn" target="_blank">tr</a></li>
                 <li><a href="https://mysql.nikm.cn" target="_blank">mysql</a></li>
                 <li><a href="https://video.nikm.cn" target="_blank">jellyfin</a></li>
             </ul>
