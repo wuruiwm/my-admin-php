@@ -56,6 +56,8 @@ class zhaoShangYingHang extends Command
      * 理财可购买额度检测
      */
     private function licai(){
+        //没额度格式 {"$SysResult$":{"$SysCode$": 500,"$Content$": {"ErrCode":"0","DataSource":{"btnTag":"N","btnTips":"很抱歉，该产品已售罄，试试查看 <span style=\"color: #5995ef;\" onclick=\"getRecList()\">其他产品<i class=\"iconfont icon-angleright bottom\"></i></span>","btnTxt":"可购买额度已售罄"}}}}
+        //有额度格式 {"$SysResult$":{"$SysCode$": 500,"$Content$": {"ErrCode":"0","DataSource":{"btnTag":"Y","btnTips":"剩余可购买额度>5000万元","btnTxt":"购买"}}}}
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, "https://mobile.cmbchina.com/IEntrustFinance/SubsidiaryProduct/SA_QueryAjax.aspx");
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
@@ -68,8 +70,22 @@ class zhaoShangYingHang extends Command
         curl_setopt($curl, CURLOPT_TIMEOUT, 30);
         curl_setopt($curl, CURLOPT_HEADER, 0);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $data = curl_exec($curl);
+        $res = curl_exec($curl);
         curl_close($curl);
-        echo json_encode($data);exit();
+
+        if(empty($data = json_decode($res,true))){
+            send_email('招商银行',"返回结果格式错误 不是json res:".$res);
+            $this->error("返回结果格式错误 不是json");
+        }
+
+        if(empty($data['$SysResult$']['$Content$']['DataSource']) || empty($data['$SysResult$']['$Content$']['DataSource']['btnTag']) || empty($data['$SysResult$']['$Content$']['DataSource']['btnTips'])){
+            send_email('招商银行',"返回结果格式错误 DataSource字段不存在 res:".$res);
+            $this->error("返回结果格式错误 字段不存在");
+        }
+
+        if($data['$SysResult$']['$Content$']['DataSource']['btnTag'] == 'Y'){
+            send_email('招商银行',"理财有额度提醒：".$data['$SysResult$']['$Content$']['DataSource']['btnTips']);
+            $this->info("理财有额度提醒：".$data['$SysResult$']['$Content$']['DataSource']['btnTips']);
+        }
     }
 }
