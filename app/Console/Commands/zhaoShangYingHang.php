@@ -76,16 +76,23 @@ class zhaoShangYingHang extends Command
         if(empty($data = json_decode($res,true))){
             send_email('招商银行',"返回结果格式错误 不是json res:".$res);
             $this->error("返回结果格式错误 不是json");
+            return;
         }
 
         if(empty($data['$SysResult$']['$Content$']['DataSource']) || empty($data['$SysResult$']['$Content$']['DataSource']['btnTag']) || empty($data['$SysResult$']['$Content$']['DataSource']['btnTips'])){
             send_email('招商银行',"返回结果格式错误 DataSource字段不存在 res:".$res);
             $this->error("返回结果格式错误 字段不存在");
+            return;
         }
 
         if($data['$SysResult$']['$Content$']['DataSource']['btnTag'] == 'Y'){
             send_email('招商银行',"理财有额度提醒：".$data['$SysResult$']['$Content$']['DataSource']['btnTips']);
             $this->info("理财有额度提醒：".$data['$SysResult$']['$Content$']['DataSource']['btnTips']);
+        }else if($data['$SysResult$']['$Content$']['DataSource']['btnTag'] == 'N'){
+            $this->info("理财无额度");
+        }else{
+            send_email('招商银行',"返回结果格式错误 字段数据异常 res:".$res);
+            $this->error("返回结果格式错误 字段数据异常");
         }
     }
 }
