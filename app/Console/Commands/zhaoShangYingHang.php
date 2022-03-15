@@ -40,7 +40,7 @@ class zhaoShangYingHang extends Command
     {
         $command = $this->argument('cli');
 
-        if(!in_array($command,['guard','restart'])){
+        if(!in_array($command,['licai'])){
             $this->error("错误命令");
             $this->info("正确命令列表");
             $this->info("理财:php artisan zsyh licai");
