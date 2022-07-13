@@ -1,17 +1,22 @@
 stages:
-  - update-code
-  - composer-install
+  - docker-build
+  - docker-push
+#  - deploy
 
-update-code-develop:
-  stage: update-code
+
+docker-build:
+  stage: docker-build
   only:
     - master
   script:
-    - sshpass -p ${WEB_PASSWORD} ssh -p ${WEB_PORT} -o StrictHostKeyChecking=no ${WEB_USERNAME}@${WEB_HOST} "cd ${WEB_PROJECT_PATH} && git checkout master && git pull origin master"
+    - docker build -t $DOCKER_REGISTER_HOST/wuruiwm/my_admin:latest -f docker/Dockerfile .
 
-composer-install-develop:
-  stage: composer-install
+
+docker-push:
+  stage: docker-push
   only:
     - master
   script:
-    - sshpass -p ${WEB_PASSWORD} ssh -p ${WEB_PORT} -o StrictHostKeyChecking=no ${WEB_USERNAME}@${WEB_HOST} "cd ${WEB_PROJECT_PATH} && composer install"
+    - docker login $DOCKER_REGISTER_HOST -u $DOCKER_REGISTER_USERNAME -p $DOCKER_REGISTER_PASSWORD
+    - docker push $DOCKER_REGISTER_HOST/wuruiwm/my_admin:latest
+
