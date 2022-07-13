@@ -44,11 +44,6 @@ class ssl extends Command
             $pem = file_get_contents(admin_config('ssl_pem'));
             Cache::put('ssl_key',$key);
             Cache::put('ssl_pem',$pem);
-            //写入文件
-            $ssl_cert_path = '/www/ssl_cert/';
-            is_dir($ssl_cert_path) || mkdir($ssl_cert_path,0777,true);
-            file_put_contents($ssl_cert_path.'key.txt',$key);
-            file_put_contents($ssl_cert_path.'cert.txt',$pem);
             $this->info("执行成功");
         } catch (\Throwable $th) {
             send_email('ssl证书自动更新异常','执行失败');
