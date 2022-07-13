@@ -10,9 +10,9 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*  \
     && nginx
 
-COPY docker/nginx /etc/nginx/conf.d
+COPY nginx /etc/nginx/conf.d
 
-COPY . /www/php
+COPY ../ /www/php
 
 RUN cd /www/php && composer install
 
