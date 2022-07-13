@@ -10,7 +10,7 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists/*  \
     && nginx
 
-COPY . /etc/nginx/conf.d
+COPY ./docker/nginx/* /etc/nginx/conf.d
 
 COPY . /www/php
 
