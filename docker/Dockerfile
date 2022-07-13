@@ -14,6 +14,7 @@ COPY docker/nginx /etc/nginx/conf.d
 
 COPY . /www/php
 
+RUN cp /www/php/.env.example /www/php/.env
 RUN cd /www/php && composer install
 
 RUN sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf
