@@ -17,7 +17,9 @@ COPY . /www/php
 RUN cd /www/php  \
     && composer install  \
     && chmod -R 777 /www/php/storage \
-    && sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf
+    && sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf \
+    && echo '' > /ssl/pem.txt \
+    && echo '' > /ssl/key.txt
 
 RUN echo '0 */1 * * * php /www/php/artisan twLolLuckDraw' > crontab_tmp \
     && echo '30 1 * * *  php /www/php/my.nikm.cn/artisan pushBlogLink' >> crontab_tmp \
