@@ -28,5 +28,11 @@ RUN echo '0 */1 * * * php /www/php/artisan twLolLuckDraw' > crontab_tmp \
     && crontab crontab_tmp  \
     && rm -f crontab_tmp
 
-#启动cron定时任务,nginx和php-fpm
-CMD ["sh","-c","service cron start && nginx && php-fpm"]
+#启动cron定时任务，nginx和php-fpm
+RUN echo '#!/bin/sh' > /start.sh \
+    && echo 'service cron start' >> /start.sh \
+    && echo 'nginx' >> /start.sh \
+    && echo 'php-fpm' >> /start.sh \
+    && chmod +x /start.sh
+
+CMD ["/start.sh"]
