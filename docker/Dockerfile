@@ -12,13 +12,14 @@ RUN apt-get update \
 
 COPY docker/nginx /etc/nginx/conf.d
 
-COPY . /www/php
-
 COPY docker/ssl /ssl
 
-RUN cd /www/php  \
-    && composer install  \
-    && chmod -R 777 /www/php/storage \
+WORKDIR /www/php
+
+COPY . .
+
+RUN composer install  \
+    && chmod -R 777 storage \
     && sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf
 
 RUN echo '0 */1 * * * php /www/php/artisan twLolLuckDraw' > crontab_tmp \
