@@ -14,10 +14,10 @@ COPY docker/nginx /etc/nginx/conf.d
 
 COPY . /www/php
 
-RUN cp /www/php/.env.example /www/php/.env
-RUN cd /www/php && composer install
-
-RUN sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf
+RUN cd /www/php  \
+    && composer install  \
+    && chmod -R 777 /www/php/storage \
+    && sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf
 
 #启动cron定时任务,nginx和php-fpm
 CMD ["sh","-c","service cron start && nginx && php-fpm"]
