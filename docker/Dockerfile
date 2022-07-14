@@ -18,7 +18,7 @@ RUN cd /www/php  \
     && composer install  \
     && chmod -R 777 /www/php/storage \
     && sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf \
-    && mkdir /ssl
+    && mkdir /ssl \
     && echo '' > /ssl/pem.txt \
     && echo '' > /ssl/key.txt
 
