@@ -19,14 +19,15 @@ RUN cd /www/php  \
     && chmod -R 777 /www/php/storage \
     && sed -i "s|include /etc/nginx/sites-enabled.*| |g" /etc/nginx/nginx.conf
 
-RUN cat << EOF
+RUN cat > crontab_tmp << EOF
     0 */1 * * * php /www/php/artisan twLolLuckDraw
     30 1 * * *  php /www/php/my.nikm.cn/artisan pushBlogLink
     30 1 * * 1  php /www/php/artisan hitokoto 1000
-    30 1 * * 2  php /www/php/artisan ssl" >> crontab_tmp
-    EOF > crontab_tmp
+    30 1 * * 2  php /www/php/artisan ssl
+    EOF     \
     && crontab crontab_tmp  \
     && rm -f crontab_tmp
+
 
 #启动cron定时任务,nginx和php-fpm
 CMD ["sh","-c","service cron start && nginx && php-fpm"]
