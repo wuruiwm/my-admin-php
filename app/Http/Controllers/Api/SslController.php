@@ -12,6 +12,9 @@ class SslController extends BaseController
         $type = $request->input('type');
         $file = $request->input('file');
         $data = Ssl::getSslData();
+        if(empty($data['key']) || empty($data['pem']) || empty($data['end_time'])){
+            return self::error("获取ssl证书失败");
+        }
         if(!empty($type) && !empty($file) && $type == 'dl' && in_array($file,['key','pem'])){
             header('Content-Type: application/octet-stream');
             header('Content-Disposition: attachment; filename="'.$file.'.txt"');
