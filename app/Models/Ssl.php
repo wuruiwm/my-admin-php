@@ -13,7 +13,7 @@ class Ssl extends Base
             $cache_key = 'pem:'.md5($data['pem']);
             $res = Cache::get($cache_key);
             if(empty($res)){
-                $pem_file_path = public_path().'/storage/app/public/ssl_pem.txt';
+                $pem_file_path = public_path().'/../storage/app/public/ssl_pem.txt';
                 file_put_contents($pem_file_path,$data['pem']);
                 exec("openssl x509 -in ".$pem_file_path." -noout -text",$res);
                 unlink($pem_file_path);
