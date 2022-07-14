@@ -46,8 +46,8 @@ class ssl extends Command
             Cache::put('ssl_pem',$pem);
             $this->info("执行成功");
         } catch (\Throwable $th) {
-            send_email('ssl证书自动更新异常','执行失败');
-            $this->error("执行失败");
+            send_email('ssl证书自动更新异常','执行失败 error:'.$th->getMessage());
+            $this->error("执行失败 error:".$th->getMessage());
         }
     }
 }
