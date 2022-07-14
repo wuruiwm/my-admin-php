@@ -1,7 +1,7 @@
 stages:
   - docker-build
   - docker-push
-#  - deploy
+  - deploy
 
 
 docker-build:
@@ -19,3 +19,11 @@ docker-push:
   script:
     - docker login $DOCKER_REGISTER_HOST -u $DOCKER_REGISTER_USERNAME -p $DOCKER_REGISTER_PASSWORD
     - docker push $DOCKER_REGISTER_HOST/wuruiwm/my_admin:latest
+
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - sshpass -p ${K8S_MASTER_PASSWORD} ssh -p ${K8S_MASTER_PORT} -o StrictHostKeyChecking=no ${K8S_MASTER_USERNAME}@${K8S_MASTER_HOST} "kubectl rollout restart -n my deployment my-admin"
