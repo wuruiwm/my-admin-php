@@ -46,7 +46,7 @@
             </ul>
             <ul class="uinoborder">
                 <li><a href="https://git.nikm.cn" target="_blank">gitlab</a></li>
-                <li><a href="https://k8s.nikm.cn" target="_blank">吾梦小店</a></li>
+                <li><a href="https://k8s.nikm.cn" target="_blank">k8s</a></li>
                 <li><a href="https://doc.nikm.cn" target="_blank">showdoc</a></li>
                 <li><a href="https://cdn.nikm.cn" target="_blank">cdn</a></li>
                 <li class="linoborder"><a href="https://docker.nikm.cn" target="_blank">docker</a></li>
